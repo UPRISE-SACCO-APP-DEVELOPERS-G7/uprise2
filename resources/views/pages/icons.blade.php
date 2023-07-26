@@ -1,7 +1,10 @@
 @extends('layouts.app', ['activePage' => 'icons', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'Icons', 'activeButton' => 'laravel'])
 
 @section('content')
-    <div class="content">
+<div class="rounded-rectangle" style="width:500px; height: 800px; background-color:white; padding: 20px;border-radius: 10px;">
+             </div>
+
+    <!-- <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -621,4 +624,4 @@
             </div>
         </div>
     </div>
-@endsection
+@endsection -->

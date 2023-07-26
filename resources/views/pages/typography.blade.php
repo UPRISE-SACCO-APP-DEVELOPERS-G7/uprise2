@@ -1,10 +1,10 @@
 @extends('layouts.app', ['activePage' => 'deposits', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'Deposits', 'activeButton' => 'laravel'])
 
 @section('content')
-<div class="row" style="margin-top:50px">
-                <div class="col-md-4">
+<div class="row" style="margin-top:50px; padding: 0px 10px; display: flex; justify-content:space-center; width: 100% ">
+                <div class="col-md-5">
                     <div class="card ">
-<div class="card-header ">
+                        <div class="card-header ">
                             <h4 class="card-title">{{ __('Summary of Deposits') }}</h4>
                             <p class="card-category">{{ __('Deposits in a day, month and year') }}</p>
                         </div>
@@ -21,7 +21,7 @@
                             </div>
                         </div>
                     </div>
-                    </div>
+                </div>
 
                     @push('js')
     <script type="text/javascript">
@@ -36,35 +36,46 @@
 @endpush
 
 
-<div class="rounded-rectangle" style="width:400px; height: 250px; background-color:White; padding: 20px;border-radius: 10px; margin-top:50px">
-            <p>Collection Statistics</p>
-             </div>
-         <div class="container-fluid" style="margin-top:50px">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card ">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('Deposit summary yearly') }}</h4>
-                            <p class="card-category">{{ __('Deposits') }}</p>
-                        </div>
-                        <div class="card-body ">
-                            <div id="chartActivity" class="ct-chart"></div>
-                        </div>
-                        <div class="card-footer ">
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Full deposits') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Installment deposits') }}
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-check"></i> {{ __('Data information certified') }}
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-md-7" style="">
+        <div style="display: flex; flex-direction: column; gap: 10px;" class="row">
+            <div class="" style="width: 100%">
+                <div class="rounded-rectangle " style="width: 100%; height: 200px; background-color:White; padding: 20px;border-radius: 10px;">
+                    <p>Collection Statistics</p>
+                    <div class="rounded-rectangle " style="width: 100%; height: 30px; background:linear-gradient(pink,green); padding: 20px;border-radius: 10px;">
+                    <p>20% Completed Deposits For Monthly Target</p>
                 </div>
+                </div>        
             </div>
+            <div class="container-fluid" style="width: 100%">
+                <!-- <div class="row">
+                    <div class=""> -->
+                        <div class="card " >
+                            <div class="card-header ">
+                                <h4 class="card-title">{{ __('Deposit summary yearly') }}</h4>
+                                <p class="card-category">{{ __('Deposits') }}</p>
+                            </div>
+                            <div class="card-body ">
+                                <div id="chartActivity" class="ct-chart"></div>
+                            </div>
+                            <div class="card-footer ">
+                                <div class="legend">
+                                    <i class="fa fa-circle text-info"></i> {{ __('Full deposits') }}
+                                    <i class="fa fa-circle text-danger"></i> {{ __('Installment deposits') }}
+                                </div>
+                                <hr>
+                                <div class="stats">
+                                    <i class="fa fa-check"></i> {{ __('Data information certified') }}
+                                </div>
+                            </div>
+                        </div>
+                    <!-- </div>
+                </div> -->
+            </div>
+        </div>
     </div>
     </div>
+
+ 
 
     <!-- <div class="content">
         <div class="container-fluid">
