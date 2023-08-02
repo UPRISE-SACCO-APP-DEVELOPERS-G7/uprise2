@@ -1,4 +1,5 @@
-<div class="sidebar" data-image="{{ asset('light-bootstrap/img/sidebar-5.jpg') }}">
+
+<div class="sidebar" data-color="blue" data-image="{{asset('light-bootstrap/img/money.jpg')}}">
     <!--
 Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -7,7 +8,7 @@ Tip 2: you can also add an image using data-image tag
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="http://www.creative-tim.com" class="simple-text">
-                {{ __(" UPRISE") }}
+            <img src="{{asset('light-bootstrap/img/log.png')}}" alt=""  style="width:100px; height: 100; margin-left: 5px">
             </a>
         </div>
         <ul class="nav">
@@ -48,8 +49,8 @@ Tip 2: you can also add an image using data-image tag
 
             <li class="nav-item @if($activePage == 'table') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'table')}}">
-                    <i class="nc-icon nc-notes"></i>
-                    <p>{{ __("Tables") }}</p>
+                    <i class="nc-icon nc-circle-09"></i>
+                    <p>{{ __("Members") }}</p>
                 </a>
             </li>
             <li class="nav-item @if($activePage == 'typography') active @endif">
@@ -60,8 +61,8 @@ Tip 2: you can also add an image using data-image tag
             </li>
             <li class="nav-item @if($activePage == 'icons') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'icons')}}">
-                    <i class="nc-icon nc-atom"></i>
-                    <p>{{ __("Requests") }}</p>
+                    <i class="nc-icon nc-money-coins"></i>
+                    <p>{{ __("Loans") }}</p>
                 </a>
             </li>
             <!-- <li class="nav-item @if($activePage == 'maps') active @endif">

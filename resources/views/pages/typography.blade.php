@@ -13,7 +13,7 @@
                             <div class="legend">
                                 <i class="fa fa-circle text-info"></i> {{ __('Yearly Deposits') }}
                                 <i class="fa fa-circle text-danger"></i> {{ __('Monthyly Deposits') }}
-                                <i class="fa fa-circle text-warning"></i> {{ _('Daily Deposits') }}
+                                <i class="fa fa-circle text-warning"></i> {{ __('Daily Deposits') }}
                             </div>
                             <hr>
                             <div class="stats">

@@ -1,25 +1,17 @@
 @extends('layouts.app', ['activePage' => 'dashboard', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'Dashboard', 'activeButton' => 'laravel'])
-<!-- <!..@section('summary')
-<div class="container" display: flex;>
-        <aside class="sidebar" width: 250px;  background-color: #f2f2f2 padding: 20px>
-        <h2>Dashboard Summary</h2>
-            <p>Some summary information...</p>
-        </aside>
-        <main class="content"  flex: 1;  padding: 20px;>  
-        <h1>Welcome to the Dashboard</h1>
-            <p>Main content goes here...</p>
-        </main>
-        @section('summary')
-    <div class="container"display: flex;>
-        <aside class="sidebar" width: 250px; background-color: #f2f2f2; padding: 20px;>
-        <h2>Dashboard Summary</h2>
-        <p>Some summary information...</p>
-        </aside>
-        <main class="content"  flex: 1; padding: 20px;>
-        <h1>Welcome to the Dashboard</h1>
-        <p>Main content goes here...</p>
-        </main>
-    </div>..> -->
+
+<!-- @section('summary')
+    <div class="container" display: flex;>
+            <aside class="sidebar" width: 250px;  background-color: #f2f2f2 padding: 20px>
+                <h2>Dashboard Summary</h2>
+                <p>Some summary information...</p>
+            </aside>
+            <main class="content"  flex: 1;  padding: 20px;>  
+                <h1>Welcome to the Dashboard</h1>
+                <p>Main content goes here...</p>
+            </main>
+    </div>
+ @endsection -->
 
 @section('content')
     <div class="content" >
@@ -296,7 +288,7 @@
             </div>
         </div>
     </div>
-<!-- @endsection -->
+@endsection
 
 @push('js')
     <script type="text/javascript">

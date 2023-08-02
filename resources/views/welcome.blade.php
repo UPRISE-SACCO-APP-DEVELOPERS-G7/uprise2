@@ -1,12 +1,14 @@
 @extends('layouts/app', ['activePage' => 'welcome', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION'])
 
 @section('content')
-    <div class="full-page section-image" data-color="black" data-image="{{asset('light-bootstrap/img/full-screen-image-2.jpg')}}">
+    <div class="full-page section-image" data-color="blue" data-image="{{asset('light-bootstrap/img/money.jpg')}}">
         <div class="content">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-7 col-md-8">
-                        <h1 class="text-white text-center">{{ __('Welcome to Light Bootstrap Dashboard FREE Laravel Live Preview.') }}</h1>
+                    <div class="col-lg-7 col-md-8 justify-content-center">
+                        <img src="{{asset('light-bootstrap/img/log.png')}}" alt=""  style="width:200px; height: 200px; margin-left: 220px">
+                        <h2 class="text-white text-center">{{ __('Welcome to Uprise Sacco system...') }}</h2>
+                        <h4 class="text-white text-center">{{ __('Empower your financial futures with us!!!') }}</h4>
                     </div>
                 </div>
             </div>
