@@ -41,12 +41,9 @@
             <div class="" style="width: 100%">
                 <div class="rounded-rectangle " style="width: 100%; height: 200px; background-color:White; padding: 20px;border-radius: 10px;">
                     <p>Collection Statistics</p>
-                    <div class="rounded-rectangle " style="width: 100%; height: 30px; background:linear-gradient(pink,green); padding: 20px;border-radius: 10px;">
+                    <div class="rounded-rectangle " style="width: 100%; height: 30px; background:Blue; padding: 20px;border-radius: 10px;">
                     <p>20% Completed Deposits For Monthly Target</p>
-                </div>
-                </div>        
-            </div>
-            <div class="container-fluid" style="width: 100%">
+                </div>id" style="width: 100%">
                 <!-- <div class="row">
                     <div class=""> -->
                         <div class="card " >
@@ -177,4 +174,6 @@
         </div>
     </div>
 @endsection -->
+
+
 
