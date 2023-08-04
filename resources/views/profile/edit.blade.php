@@ -105,7 +105,7 @@
                                 </div>
                                 <p class="description text-center">
                                 {{ __(' "Your user profile') }}
-                                    <br> {{ __('This is your profile as a member of the Uprise SACCO') }}
+                                    <br> {{ __('This is your profile as an administrator') }}
                                     <!-- <br> {{ __('I am in that two seat Lambo') }} -->
                                 </p>
                             </div>

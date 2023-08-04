@@ -1,7 +1,7 @@
-@extends('layouts.app', ['activePage' => 'upgrade', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'Upgrade', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'upgrade', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'SignOut', 'activeButton' => 'laravel'])
 
 @section('content')
-    <div class="content">
+    <!-- <div class="content">
         <div class="container-fluid">
             <div class="content">
                 <div class="container-fluid">
@@ -124,5 +124,80 @@
                 </div>
             </div>
         </div>
+    </div> -->
+
+  
+    <?php
+// Start the session
+session_start();
+
+// Check if the user is signed in or not
+if (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] === true) {
+    // If user is signed in
+    if (isset($_GET['action']) && $_GET['action'] === 'sign_out') {
+        // Simulate sign-out
+        $_SESSION['signed_in'] = false;
+        header('Location: index.php');
+        exit();
+    }
+} else {
+    // If user is not signed in, simulate sign-in
+    $_SESSION['signed_in'] = true;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Out</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            margin: 100px auto;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <?php
+        // Check if the user is signed in or not
+        if (isset($_SESSION['signed_in']) && $_SESSION['signed_in'] === true) {
+            // If user is signed in
+            echo '<h1>Welcome!</h1>';
+            echo '<p>You are signed in.</p>';
+            echo '<a href="?action=sign_out">Sign Out</a>';
+        } else {
+            // If user is not signed in
+            echo '<h1>Not Signed In</h1>';
+            echo '<p>Click the button below to sign in:</p>';
+            echo '<a href="?action=sign_out">Sign In</a>';
+        }
+        ?>
     </div>
-@endsection
+</body>p
+</html>
+
+
+    
+    
+
+
+
+    
+<!-- @endsection -->

@@ -1,6 +1,55 @@
 @extends('layouts.app', ['activePage' => 'deposits', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'Deposits', 'activeButton' => 'laravel'])
 
 @section('content')
+
+<!-- <div>
+                <label for="property-images">Images</label>
+                <input type="file" id="property-images" name="property-images" multiple required>
+              </div> -->
+
+              <!DOCTYPE html>
+<html>
+<head>
+  <title>File Input Styling</title>
+  <style>
+    /* Hide the default file input text */
+    input[type="file"] {
+      display: none;
+    }
+
+    /* Style the label to look like a button */
+    label#file-label {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: blue;
+      color: white;
+      cursor: pointer;
+      font-weight: bold; /* Make the text bold */
+    }
+
+    /* Hide the label text when files are chosen */
+    input[type="file"]:valid + label#file-label {
+      display: none;
+    }
+
+    /* Show the custom "No file chosen" text when files are not chosen */
+    input[type="file"]:not(:valid) + label#file-label::before {
+      content: "No file chosen";
+      color: black;
+      font-weight: normal; /* Make the custom text normal weight */
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <label for="property-images" id="file-label">Choose Files</label>
+    <input type="file" id="property-images" name="property-images" multiple required>
+  </div>
+</body>
+</html>
+
+              
+              
 <div class="row" style="margin-top:50px; padding: 0px 10px; display: flex; justify-content:space-center; width: 100% ">
                 <div class="col-md-5">
                     <div class="card ">
@@ -40,10 +89,13 @@
         <div style="display: flex; flex-direction: column; gap: 10px;" class="row">
             <div class="" style="width: 100%">
                 <div class="rounded-rectangle " style="width: 100%; height: 200px; background-color:White; padding: 20px;border-radius: 10px;">
-                    <p>Collection Statistics</p>
+                    <!-- <p>Collection Statistics</p> -->
+                    <p><strong>Collection Statistics</strong></p>
+
                     <div class="rounded-rectangle " style="width: 100%; height: 30px; background:Blue; padding: 20px;border-radius: 10px;">
                     <p>20% Completed Deposits For Monthly Target</p>
-                </div>id" style="width: 100%">
+    
+                <!-- </div>id" style="width: 100%"> -->
                 <!-- <div class="row">
                     <div class=""> -->
                         <div class="card " >
@@ -69,10 +121,14 @@
                 </div> -->
             </div>
         </div>
-    </div>
+
+        
     </div>
 
- 
+   
+    </div>
+
+   
 
     <!-- <div class="content">
         <div class="container-fluid">
@@ -174,6 +230,7 @@
         </div>
     </div>
 @endsection -->
+
 
 
 
