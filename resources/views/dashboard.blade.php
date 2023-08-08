@@ -1,45 +1,54 @@
 @extends('layouts.app', ['activePage' => 'dashboard', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'Dashboard', 'activeButton' => 'laravel'])
-<!-- <!..@section('summary')
-<div class="container" display: flex;>
-        <aside class="sidebar" width: 250px;  background-color: #f2f2f2 padding: 20px>
-        <h2>Dashboard Summary</h2>
-            <p>Some summary information...</p>
-        </aside>
-        <main class="content"  flex: 1;  padding: 20px;>  
-        <h1>Welcome to the Dashboard</h1>
-            <p>Main content goes here...</p>
-        </main>
-        @section('summary')
-    <div class="container"display: flex;>
-        <aside class="sidebar" width: 250px; background-color: #f2f2f2; padding: 20px;>
-        <h2>Dashboard Summary</h2>
-        <p>Some summary information...</p>
-        </aside>
-        <main class="content"  flex: 1; padding: 20px;>
-        <h1>Welcome to the Dashboard</h1>
-        <p>Main content goes here...</p>
-        </main>
-    </div>..> -->
+
+<!-- @section('summary')
+    <div class="container" display: flex;>
+            <aside class="sidebar" width: 250px;  background-color: #f2f2f2 padding: 20px>
+                <h2>Dashboard Summary</h2>
+                <p>Some summary information...</p>
+            </aside>
+            <main class="content"  flex: 1;  padding: 20px;>  
+                <h1>Welcome to the Dashboard</h1>
+                <p>Main content goes here...</p>
+            </main>
+    </div>
+ @endsection -->
 
 @section('content')
     <div class="content" >
 
     <div style="display: flex; justify-content: space-around">
         <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:Blue; padding: 20px;border-radius: 10px;">
-            <p>Members</p>
-            <p>100</p>
+            <!-- <p>Members</p> -->
+            <!-- <p class="white-text" style="color: white;">Members</p> -->
+            <p class="white-text" style="color: white;"><strong>Members</strong></p>
+
+            <!-- <p>100</p> -->
+            <p style="color: white;">100</p>
+
         </div>
-        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:white; padding: 20px;border-radius: 10px;">
-            <p>Requests</p>
-            <p>12</p>
+        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:Blue; padding: 20px;border-radius: 10px;">
+            <!-- <p>Requests</p> -->
+            <p class="white-text" style="color: white;"><strong>Requests</strong></p>
+
+            <!-- <p>12</p> -->
+            <p style="color: white;">12</p>
+
         </div>
-        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:Green; padding: 20px; border-radius: 10px;">
-            <p>Deposits</p>
-            <p>10,000,000</p>
+        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:Blue; padding: 20px; border-radius: 10px;">
+            <!-- <p>Deposits</p> -->
+            <p class="white-text" style="color: white;"><strong>Deposits</strong></p>
+
+            <!-- <p>10,000,000</p> -->
+            <p style="color: white;">10,000,000</p>
+
         </div>
-        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:Purple; padding: 20px; border-radius: 10px;">
-            <p>Active Loans</p>
-            <p>9</p>
+        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:Blue; padding: 20px; border-radius: 10px;">
+            <!-- <p>Active Loans</p> -->
+            <p class="white-text" style="color: white;"><strong>Active Loans</strong></p>
+
+            <!-- <p>9</p> -->
+            <p style="color: white;">9</p>
+
         </div>
     </div>
 
@@ -296,7 +305,7 @@
             </div>
         </div>
     </div>
-<!-- @endsection -->
+@endsection
 
 @push('js')
     <script type="text/javascript">
