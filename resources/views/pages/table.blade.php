@@ -2,8 +2,46 @@
 
 @section('content')
     <div class="content">
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Register Button</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #registerButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    #registerButton:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+<button id="registerButton">Register Member</button>
+
+<script>
+document.getElementById("registerButton").addEventListener("click", function() {
+  // Add your registration logic here
+  alert("Registration successful!");
+});
+</script>
+
+</body>
+</html>
+
+
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" style="margin-top:50px">
                 <div class="col-md-12">
                     <div class="card strpied-tabled-with-hover">
                         <div class="card-header ">
@@ -17,6 +55,7 @@
                                     <th>Name</th>
                                     <th>Deposits</th>
                                     <th>Status</th>
+                                    <th>Email</th>
                                     
                                 </thead>
                                 <tbody>
