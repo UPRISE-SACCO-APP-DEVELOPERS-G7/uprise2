@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'dashboard', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'Dashboard', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'dashboard', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'Loans', 'activeButton' => 'laravel'])
 
 <!-- @section('summary')
     <div class="container" display: flex;>
@@ -18,8 +18,9 @@
 
     <div style="display: flex; justify-content: space-around">
         <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:green; padding: 20px;border-radius: 10px;">
-            <p style = "color: white">Active loans</p>
+          <a href=""><p style = "color: white">Active loans</p></a>
             <p style = "color: white">100</p>
+            
         </div>
         <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:green; padding: 20px;border-radius: 10px;">
             <p style = "color: white">Pending loans</p>

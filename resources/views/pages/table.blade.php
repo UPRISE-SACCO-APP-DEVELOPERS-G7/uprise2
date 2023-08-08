@@ -196,6 +196,7 @@ document.getElementById("registerButton").addEventListener("click", function() {
                                 </tbody>
                             </table>
                         </div>
+                        
                     </div>
                 </div>
                 <!-- <div class="col-md-12">

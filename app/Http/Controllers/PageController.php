@@ -18,4 +18,6 @@ class PageController extends Controller
         }
         return abort(404);
     }
+
+   
 }
