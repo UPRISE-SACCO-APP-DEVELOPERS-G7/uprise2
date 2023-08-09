@@ -35,7 +35,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 	Route::get('/loans', ['App\Http\Controllers\LoansController@loans'])->name("all_loans");
-
+    
 });
 
-Route::get("/members", [App\Http\Controllers\MemberController::class, 'getMembers']);
+Route::get("/members", [App\Http\Controllers\MemberController::class, 'store']);
+// Route::get('/sample',['App\Http\Controllers\MemberController@store']);

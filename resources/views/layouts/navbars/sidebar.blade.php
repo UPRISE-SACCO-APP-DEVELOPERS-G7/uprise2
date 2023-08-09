@@ -76,7 +76,7 @@ Tip 2: you can also add an image using data-image tag
             </li>
 
             
-            <!-- <li class="nav-item @if($activePage == 'maps') active @endif">
+             <li class="nav-item @if($activePage == 'maps') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'maps')}}">
                     <i class="nc-icon nc-pin-3"></i>
                     <p>{{ __("Claims") }}</p>
