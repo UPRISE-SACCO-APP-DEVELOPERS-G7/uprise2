@@ -59,13 +59,14 @@ Tip 2: you can also add an image using data-image tag
                     <p>{{ __("Deposits") }}</p>
                 </a>
             </li>
-            <li class="nav-item @if($activePage == 'icons') active @endif">
+            <!-- <li class="nav-item @if($activePage == 'icons') active @endif"> -->
+               <li class="nav-item"> 
                 <!-- <a class="nav-link" href="{{route('all_loans', 'loans')}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="nc-icon nc-money-coins"></i>
                     <p>{{ __("Loans") }}</p>
                     
                 </a> -->
-                <a class="nav-link" href="{{route('all_loans')}}">
+                <a class="nav-link" href="{{ route('all_loans') }}">
                 <i class="nc-icon nc-money-coins"></i>
                 Loans</a>
                 <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

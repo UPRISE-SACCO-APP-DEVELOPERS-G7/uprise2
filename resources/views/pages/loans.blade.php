@@ -16,25 +16,25 @@
 @section('content')
     <div class="content" >
 
-    <div style="display: flex; justify-content: space-around">
-        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:green; padding: 20px;border-radius: 10px;">
-          <a href=""><p style = "color: white">Active loans</p></a>
-            <p style = "color: white">100</p>
-            
+        <div style="display: flex; justify-content: space-around">
+            <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:green; padding: 20px;border-radius: 10px;">
+            <a href=""><p style = "color: white">ACCEPTED</p></a>
+                <p style = "color: white">{{ $accepted }}</p>
+                
+            </div>
+            <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:green; padding: 20px;border-radius: 10px;">
+                <p style = "color: white">PENDING</p>
+                <p style = "color: white">{{ $pending }}</p>
+            </div>
+            <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:green; padding: 20px; border-radius: 10px;">
+                <p style = "color: white">SHORTLISTED </p>
+                <p style = "color: white">{{ $shortlisted }}</p>
+            </div>
+            <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:green; padding: 20px; border-radius: 10px;">
+                <p style = "color: white">DISAPPROVED</p>
+                <p style = "color: white">{{ $disapproved }}</p>
+            </div>
         </div>
-        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:green; padding: 20px;border-radius: 10px;">
-            <p style = "color: white">Pending loans</p>
-            <p style = "color: white">12</p>
-        </div>
-        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:green; padding: 20px; border-radius: 10px;">
-            <p style = "color: white">Paid loans</p>
-            <p style = "color: white">10,000,000</p>
-        </div>
-        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:green; padding: 20px; border-radius: 10px;">
-            <p style = "color: white">Loan requests</p>
-            <p style = "color: white">9</p>
-        </div>
-    </div>
 
         <div class="container-fluid" style="margin-top:50px">
             <div class="row">
@@ -85,33 +85,30 @@
             <!-- Table -->
             <div class="card-body table-full-width table-responsive">
                 <h3>LOAN REQUESTS</h3>
-                            <table class="table table-hover table-striped">
-                                <thead>
-                                    <th>ID</th>
-                                    <!-- <th>Name</th> -->
-                                    <th>Amount</th>
-                                    <th>Start date</th>
-                                    <th>End date</th>
-                                    <th>Status</th>
-                                </thead>
-                                <tbody>
-                                 @forelse ($loans as $loan)
-                                <tr>
-                                        <td>$loan->id</td>
-                                      
-                                        <td>$loan->amount</td>
-                                        <td>$loan->start_date</td>
-                                        <td>$loan->end_date</td>
-                                        <td>$loan->request_status</td>
-                                    </tr>        
-
-                                @empty
-                                    <p>No loans available</p>
-                                @endforelse
-                                       
-                             
-                                </tbody>
-                            </table>
+       
+                    
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Amount</th>
+                            <th>Start date</th>
+                            <th>End date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($loans as $loan)
+                            <tr>
+                                <td>{{ $loan->id }}</td>
+                                <td>{{ $loan->amount }}</td>
+                                <td>{{ $loan->start_date }}</td>
+                                <td>{{ $loan->end_date }}</td>
+                                <td>{{ $loan->request_status }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
 
             <div class="row">
@@ -137,11 +134,14 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                   <p>Hello</p>
+                  
                 </div>
             </div>
         </div>
     </div>
+
+
+
 @endsection
 
 @push('js')
@@ -154,4 +154,5 @@
 
         });
     </script>
-@endpush
+@endpush  
+
