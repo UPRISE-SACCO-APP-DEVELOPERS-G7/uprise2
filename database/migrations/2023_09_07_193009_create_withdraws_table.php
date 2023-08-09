@@ -13,13 +13,14 @@ class CreateWithdrawsTable extends Migration
      */
     public function up()
     {
-        Schema::create('withdraws', function (Blueprint $table) {
+        Schema::create('withdraws_table', function (Blueprint $table) {
             $table->id();
-            $table->double('amount');
             $table->unsignedBigInteger('member_id');
+            $table->double('amount');
+            $table->foreign('member_id')->references('id')->on('members_table')->onDelete('cascade');
             $table->timestamps();
 
-            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            
         });
     }
 
@@ -30,6 +31,6 @@ class CreateWithdrawsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('withdraws');
+        Schema::dropIfExists('withdraws_table');
     }
 }

@@ -20,7 +20,7 @@ class CreateDepositsTable extends Migration
             $table->timestamps(); // This will automatically add `created_at` and `updated_at` columns
             
             // Add foreign key constraint to the members table
-            $table->foreign('member_id')->references('id')->on('members');
+            $table->foreign('member_id')->references('id')->on('members_table');
         });
     }
 
