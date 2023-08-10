@@ -14,8 +14,10 @@ class PageController extends Controller
      */
     public function index($page)
     {
+        // dd($page);
+        // if($page == "loans"){}
         $loans = Loans::all();
-        $pending = $accepted = $disapproved = $shortlisted = 0;
+        $pending = $accepted = $disapproved = $shortlisted = $approved = $rejected = 0;
         foreach($loans as $loan){
                 if($loan->request_status == "ACCEPTED"){
                     $accepted++;
@@ -25,6 +27,12 @@ class PageController extends Controller
                 }
                 elseif($loan->request_status == "SHORTLISTED"){
                     $shortlisted++;
+                }
+                elseif($loan->request_status == "APPROVED"){
+                    $approved++;
+                }
+                elseif($loan->request_status == "REJECTED"){
+                    $rejected++;
                 }
                 else{
                     $disapproved++;   
@@ -36,6 +44,11 @@ class PageController extends Controller
                          'accepted'=>$accepted, 
                          'shortlisted'=>$shortlisted,
                          'disapproved'=>$disapproved,
+                         'approved'=>$approved,
+                         'activePage' => $page,
+                         'rejected' => $rejected,
+                         'activeButton' => 'laravel',
+                         
                     );
         if (view()->exists("pages.{$page}")) {
             return view("pages.{$page}")->with($data);

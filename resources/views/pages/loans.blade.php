@@ -38,18 +38,23 @@
 
         <div class="container-fluid" style="margin-top:50px">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-8">
                     <div class="card ">
                         <div class="card-header ">
-                            <h4 class="card-title">{{ __('Loan metrics') }}</h4>
-                            <p class="card-category">{{ __('Past three months') }}</p>
+                            <h4 class="card-title">{{ __('Approved and Disapproved') }}</h4>
+                            <p class="card-category">{{ __('Today') }}</p>
                         </div>
                         <div class="card-body ">
-                            <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                            <!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
+                            <!-- <div id="chartHours" class="ct-chart"></div> -->
+                            <div class="chart">
+                                <canvas id= "myChart"></canvas>
+                            </div>
+                         </div>
                             <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('June') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('July') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('August') }}
+                                <i class="fa fa-circle text-info"></i> {{ __('Approved') }}
+                                <i class="fa fa-circle text-danger"></i> {{ __('Disapproved') }}
+                               
                             </div>
                             <hr>
                             <div class="stats">
@@ -58,28 +63,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="card ">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('Loans Behavior') }}</h4>
-                            <p class="card-category">{{ __('24 Hours performance') }}</p>
-                        </div>
-                        <div class="card-body ">
-                            <div id="chartHours" class="ct-chart"></div>
-                        </div>
-                        <div class="card-footer ">
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Active Loans') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Pending Loans') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Paid Loans') }}
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-history"></i> {{ __('Updated 3 minutes ago') }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
 
             <!-- Table -->
@@ -87,7 +71,7 @@
                 <h3>LOAN REQUESTS</h3>
        
                     
-                <table class="table table-hover table-striped">
+                <table class="table table-hover table-striped" id = "myTable">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -114,33 +98,114 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card ">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('Deposit summary yearly') }}</h4>
-                            <p class="card-category">{{ __('Deposits') }}</p>
-                        </div>
                         <div class="card-body ">
-                            <div id="chartActivity" class="ct-chart"></div>
-                        </div>
-                        <div class="card-footer ">
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Full deposits') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Installment deposits') }}
+                            <div class="chart">
+                                <canvas id= "loanStatusChart"></canvas>
                             </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-check"></i> {{ __('Data information certified') }}
-                            </div>
-                        </div>
+                         </div>
+                        
                     </div>
-                </div>
-                <div class="col-md-6">
-                  
+                 </div>
+                 <div class="col-md-6">
+                    <div class="card ">
+                        
+                        <div class="card-body ">
+                            <div class="chart">
+                                <canvas id= "loanStatusChart"></canvas>
+                            </div>
+                         </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript">
+        var ctx = document.getElementById('loanStatusChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {!! json_encode(['Approved', 'Shortlisted', 'Disapproved', 'Pending', 'Accepted', 'Rejected']) !!},
+                datasets: [{
+                    label: 'Loan Status',
+                    data: {!! json_encode([ $approved,$shortlisted, $disapproved, $pending, $accepted, $rejected]) !!},
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 205, 86, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(153, 102, 255, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 
 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Calculate the past six months dynamically
+        var today = new Date();
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var labels = [];
+    
+        for (var i = 5; i >= 0; i--) {
+            var pastMonth = new Date(today.getFullYear(), today.getMonth() - i, 1);
+            labels.push(monthNames[pastMonth.getMonth()] + ' ' + pastMonth.getFullYear());
+        }
+    
+        var ctx = document.getElementById('chart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels, // Use the dynamically calculated month labels
+                datasets: [{
+                    label: 'Performance Over Months',
+                    data: [0, 0, 40, 70, 40, 5], // Assuming you passed the overall performance value
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script type="text/javascript" src="https:////cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+    
+      
+  
 
 @endsection
 
