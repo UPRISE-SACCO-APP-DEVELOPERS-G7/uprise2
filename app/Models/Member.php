@@ -9,17 +9,15 @@ class Member extends Model
     protected $table = 'members';
 
     protected $fillable = [
-        'title',
-        'first_name',
-        'last_name',
-        'address',
+        
         'username',
         'password',
         'phone',
         'email',
-        'loan_balance',
-        'deposit_balance',
-        'type',
+        'status',
+        'membership_type',
+    
+
     ];
 
     protected $casts = [

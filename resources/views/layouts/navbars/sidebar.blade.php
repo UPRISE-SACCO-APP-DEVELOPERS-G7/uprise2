@@ -47,8 +47,8 @@ Tip 2: you can also add an image using data-image tag
                 </div>
             </li>
 
-            <li class="nav-item @if($activePage == 'table') active @endif">
-                <a class="nav-link" href="{{route('page.index', 'table')}}">
+            <li class="nav-item @if($activePage == 'members') active @endif">
+                <a class="nav-link" href="{{route('page.index', 'members')}}">
                     <i class="nc-icon nc-circle-09"></i>
                     <p>{{ __("Members") }}</p>
                 </a>
