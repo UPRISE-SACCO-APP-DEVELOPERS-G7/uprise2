@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,5 +39,5 @@ Route::group(['middleware' => 'auth'], function () {
     
 });
 
-Route::get("/members", [App\Http\Controllers\MemberController::class, 'store']);
+Route::get('/members', [MemberController::class, 'store']);
 // Route::get('/sample',['App\Http\Controllers\MemberController@store']);

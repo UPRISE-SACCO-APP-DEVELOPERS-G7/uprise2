@@ -46,7 +46,7 @@ class MemberController extends Controller
     //     }
     // }
      return view('pages.loans');
-    ;
+    
 }
 
-
+}
