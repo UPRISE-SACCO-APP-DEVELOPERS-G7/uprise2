@@ -24,7 +24,8 @@ class CreateLoansTable extends Migration
             $table->string('rejection_reason')->nullable();
             $table->unsignedBigInteger('member_id');
             $table->timestamps(); // This will automatically add `created_at` and `updated_at` columns
-            
+            $table->integer('installment_count')->nullable();
+            $table->decimal('installment_amount', 10, 2)->nullable();
             // Add foreign key constraint to the members table
             $table->foreign('member_id')->references('id')->on('members');
         });
@@ -37,6 +38,14 @@ class CreateLoansTable extends Migration
      */
     public function down()
     {
+
+        Schema::table('loans', function (Blueprint $table) {
+            // Drop the new columns
+            $table->dropColumn('installment_count');
+            $table->dropColumn('installment_amount');
+        });
+    
         Schema::dropIfExists('loans');
+        
     }
 };

@@ -17,6 +17,8 @@ class Loans extends Model
         'request_status',
         'rejection_reason',
         'member_id',
+        'installment_count',
+         'installment_amount',
     ];
 
     protected $casts = [
@@ -24,6 +26,7 @@ class Loans extends Model
         'amount' => 'double',
         'payment_period' => 'integer',
         'request_status' => 'string', // Make sure to adjust this based on the correct data type
+        
     ];
 
     // Define timestamps

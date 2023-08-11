@@ -14,8 +14,7 @@ class PageController extends Controller
      */
     public function index($page)
     {
-        // dd($page);
-        // if($page == "loans"){}
+        $loans = Loans::with('installments')->get(); 
         $loans = Loans::all();
         $pending = $accepted = $disapproved = $shortlisted = $approved = $rejected = 0;
         foreach($loans as $loan){
@@ -38,6 +37,7 @@ class PageController extends Controller
                     $disapproved++;   
                 }
         }
+       
         $data = array('loans' => $loans, 
                         'deposits'=> [],
                          'pending'=>$pending, 
