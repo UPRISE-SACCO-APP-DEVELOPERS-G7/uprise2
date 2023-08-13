@@ -29,7 +29,7 @@
                       <div class="card ">
                         <div class="card-body ">
                             <div class="chart">
-                            <canvas id= "loanStatusChart" style="width: 500px; height: 312px;"></canvas>
+                            <canvas id= "loanStatusChart" style="width: 500px; height: 350px;"></canvas>
                             </div>
                          </div>
                         
@@ -40,7 +40,7 @@
                         
                         <div class="card-body ">
                             <div class="chart">
-                                <canvas id= "approvedRejectedPieChart" style="width: 500px; height: 275px;"></canvas>
+                                <canvas id= "approvedRejectedPieChart" style="width: 500px; height: 300px;"></canvas>
                             </div>
                          </div>
                         

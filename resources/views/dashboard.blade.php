@@ -17,7 +17,7 @@
     <div class="content" >
 
     <div style="display: flex; justify-content: space-around">
-        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:Blue; padding: 20px;border-radius: 10px;">
+    <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
             <!-- <p>Members</p> -->
             <!-- <p class="white-text" style="color: white;">Members</p> -->
             <p class="white-text" style="color: white;"><strong>Members</strong></p>
@@ -26,15 +26,15 @@
             <p style="color: white;">100</p>
 
         </div>
-        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:Blue; padding: 20px;border-radius: 10px;">
+        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
             <!-- <p>Requests</p> -->
-            <p class="white-text" style="color: white;"><strong>Requests</strong></p>
+            <p class="white-text" style="color: white;"><strong>Non Members</strong></p>
 
             <!-- <p>12</p> -->
-            <p style="color: white;">12</p>
+            <p style="color: white;">0</p>
 
         </div>
-        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:Blue; padding: 20px; border-radius: 10px;">
+        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
             <!-- <p>Deposits</p> -->
             <p class="white-text" style="color: white;"><strong>Deposits</strong></p>
 
@@ -42,9 +42,9 @@
             <p style="color: white;">10,000,000</p>
 
         </div>
-        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:Blue; padding: 20px; border-radius: 10px;">
+        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
             <!-- <p>Active Loans</p> -->
-            <p class="white-text" style="color: white;"><strong>Active Loans</strong></p>
+            <p class="white-text" style="color: white;"><strong>Loans</strong></p>
 
             <!-- <p>9</p> -->
             <p style="color: white;">9</p>
@@ -57,37 +57,64 @@
                 <div class="col-md-4">
                     <div class="card ">
                         <div class="card-header ">
-                            <h4 class="card-title">{{ __('Email Performance Metrics') }}</h4>
-                            <p class="card-category">{{ __('Last Campaign Performance') }}</p>
+                            <h4 class="card-title">{{ __('Member with highest Deposits') }}</h4>
+                           
                         </div>
                         <div class="card-body ">
-                            <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                            <!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
                             <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Open') }}
+                                <p>Madrine Mulindwa</p>
+                                <p>4000,000</p>
+                                <!-- <i class="fa fa-circle text-info"></i> {{ __('Open') }}
                                 <i class="fa fa-circle text-danger"></i> {{ __('Bounce') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Unsubscribe') }}
+                                <i class="fa fa-circle text-warning"></i> {{ __('Unsubscribe') }} -->
                             </div>
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-clock-o"></i> {{ __('Campaign sent 2 days ago') }}
+                                <i class="fa fa-clock-o"></i> {{ __('Last Updated 2 days ago') }}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-4">
                     <div class="card ">
                         <div class="card-header ">
-                            <h4 class="card-title">{{ __('Users Behavior') }}</h4>
-                            <p class="card-category">{{ __('24 Hours performance') }}</p>
+                            <h4 class="card-title">{{ __('Member with highest Loan') }}</h4>
+                           
                         </div>
                         <div class="card-body ">
-                            <div id="chartHours" class="ct-chart"></div>
+                            <!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
+                            <div class="legend">
+                                <p>Leticia Mulindwa</p>
+                                <p>4000,000</p>
+                                <!-- <i class="fa fa-circle text-info"></i> {{ __('Open') }}
+                                <i class="fa fa-circle text-danger"></i> {{ __('Bounce') }}
+                                <i class="fa fa-circle text-warning"></i> {{ __('Unsubscribe') }} -->
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-clock-o"></i> {{ __('Last Updated 2 days ago') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card ">
+                        <div class="card-header ">
+                            <h4 class="card-title">{{ __('SACCO ACCOUNT BALANCE') }}</h4>
+                            <!-- <p class="card-category">{{ __('24 Hours performance') }}</p> -->
+                        </div>
+                        <div class="card-body ">
+                            <!-- <div id="chartHours" class="ct-chart"></div> -->
                         </div>
                         <div class="card-footer ">
                             <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Open') }}
+                             
+                                <p>12,000,000</p>
+                                <!-- <i class="fa fa-circle text-info"></i> {{ __('Open') }}
                                 <i class="fa fa-circle text-danger"></i> {{ __('Click') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Click Second Time') }}
+                                <i class="fa fa-circle text-warning"></i> {{ __('Click Second Time') }} -->
                             </div>
                             <hr>
                             <div class="stats">
