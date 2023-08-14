@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string("email");
             $table->string("status");
             $table->string("membership_type");
+            $table->string("registration_number");
+            $table->string("physical_address");
+            $table->string("postal_address");
             $table->timestamps();
         });
     }

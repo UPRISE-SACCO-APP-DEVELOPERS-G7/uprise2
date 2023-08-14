@@ -13,7 +13,7 @@ class CreateClaimsTable extends Migration
      */
     public function up()
     {
-        Schema::create('claims', function (Blueprint $table) {
+        Schema::create('claims_table', function (Blueprint $table) {
             $table->id();
             $table->string('description');
             $table->enum('status', ['RESOLVED', 'UNRESOLVED', 'IN_PROGRESS'])->default('UNRESOLVED');

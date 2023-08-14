@@ -48,13 +48,15 @@ Tip 2: you can also add an image using data-image tag
             </li>
 
             <li class="nav-item @if($activePage == 'members') active @endif">
-                <a class="nav-link" href="{{route('page.index', 'members')}}">
+                <a class="nav-link" href="{{route('all_members')}}">
                     <i class="nc-icon nc-circle-09"></i>
                     <p>{{ __("Members") }}</p>
                 </a>
             </li>
             <li class="nav-item @if($activePage == 'typography') active @endif">
-                <a class="nav-link" href="{{route('page.index', 'typography')}}">
+                <!-- <a class="nav-link" href="{{route('page.index', 'typography')}}"> -->
+                <a class="nav-link" href="{{ URL('/typography')}}">
+
                     <i class="nc-icon nc-paper-2"></i>
                     <p>{{ __("Deposits") }}</p>
                 </a>
@@ -77,7 +79,7 @@ Tip 2: you can also add an image using data-image tag
 
             
              <li class="nav-item @if($activePage == 'maps') active @endif">
-                <a class="nav-link" href="{{route('page.index', 'maps')}}">
+                <a class="nav-link" href="{{URL('/maps')}}">
                     <i class="nc-icon nc-pin-3"></i>
                     <p>{{ __("Claims") }}</p>
                 </a>

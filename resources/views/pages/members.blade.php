@@ -29,6 +29,15 @@
   <label for="username">Membership Type:</label>
   <input type="text" id="membership type" name="membership_type" required>
 
+  <label for="username">Registration Number:</label>
+  <input type="text" id="registration number" name="registration_number" required>
+
+  <label for="username">Physical Address:</label>
+  <input type="text" id="physical address" name="physical_address" required>
+
+  <label for="username">Postal Address:</label>
+  <input type="text" id="postal address" name="postal_address" required>
+
   <button type="submit" id="registerButton">Register</button>
 </form>
 

@@ -38,10 +38,11 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 	// Route::get('/dash', [PageController::class, 'dashboard'])->name("dashboard");
-
+    
 	Route::post('/members', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@createMember']);
-
+	Route::get('/members', ['App\Http\Controllers\PageController@listMembers'])->name("all_members");
 	Route::get('/loans', ['App\Http\Controllers\LoansController@loans'])->name("all_loans");
+
 	// Route::get('/members', [MemberController::class, 'store']);
     
 });
