@@ -17,36 +17,20 @@
     <div class="content" >
 
     <div style="display: flex; justify-content: space-around">
-    <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
-            <!-- <p>Members</p> -->
-            <!-- <p class="white-text" style="color: white;">Members</p> -->
+        <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
             <p class="white-text" style="color: white;"><strong>Members</strong></p>
-
-            <!-- <p>100</p> -->
             <p style="color: white;">100</p>
-
         </div>
         <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
-            <!-- <p>Requests</p> -->
             <p class="white-text" style="color: white;"><strong>Non Members</strong></p>
-
-            <!-- <p>12</p> -->
             <p style="color: white;">0</p>
-
         </div>
         <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
-            <!-- <p>Deposits</p> -->
             <p class="white-text" style="color: white;"><strong>Deposits</strong></p>
-
-            <!-- <p>10,000,000</p> -->
             <p style="color: white;">10,000,000</p>
-
         </div>
         <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
-            <!-- <p>Active Loans</p> -->
             <p class="white-text" style="color: white;"><strong>Loans</strong></p>
-
-            <!-- <p>9</p> -->
             <p style="color: white;">9</p>
 
         </div>
@@ -57,17 +41,12 @@
                 <div class="col-md-4">
                     <div class="card ">
                         <div class="card-header ">
-                            <h4 class="card-title">{{ __('Member with highest Deposits') }}</h4>
+                            <h4 class="card-title">{{ __('Highest Deposits') }}</h4>
                            
                         </div>
                         <div class="card-body ">
-                            <!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
                             <div class="legend">
-                                <p>Madrine Mulindwa</p>
                                 <p>4000,000</p>
-                                <!-- <i class="fa fa-circle text-info"></i> {{ __('Open') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Bounce') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Unsubscribe') }} -->
                             </div>
                             <hr>
                             <div class="stats">
@@ -79,17 +58,29 @@
                 <div class="col-md-4">
                     <div class="card ">
                         <div class="card-header ">
-                            <h4 class="card-title">{{ __('Member with highest Loan') }}</h4>
+                            <h4 class="card-title">{{ __('Highest Loans') }}</h4>
                            
                         </div>
                         <div class="card-body ">
-                            <!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
                             <div class="legend">
-                                <p>Leticia Mulindwa</p>
                                 <p>4000,000</p>
-                                <!-- <i class="fa fa-circle text-info"></i> {{ __('Open') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Bounce') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Unsubscribe') }} -->
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-clock-o"></i> {{ __('Last Updated 2 days ago') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card ">
+                        <div class="card-header ">
+                            <h4 class="card-title">{{ __('Account Balance') }}</h4>
+                           
+                        </div>
+                        <div class="card-body ">
+                            <div class="legend">
+                                <p>14,000,000</p>
                             </div>
                             <hr>
                             <div class="stats">
@@ -99,40 +90,15 @@
                     </div>
                 </div>
                 
-                <div class="col-md-4">
-                    <div class="card ">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('SACCO ACCOUNT BALANCE') }}</h4>
-                            <!-- <p class="card-category">{{ __('24 Hours performance') }}</p> -->
-                        </div>
-                        <div class="card-body ">
-                            <!-- <div id="chartHours" class="ct-chart"></div> -->
-                        </div>
-                        <div class="card-footer ">
-                            <div class="legend">
-                             
-                                <p>12,000,000</p>
-                                <!-- <i class="fa fa-circle text-info"></i> {{ __('Open') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Click') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Click Second Time') }} -->
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-history"></i> {{ __('Updated 3 minutes ago') }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-
-            <!-- Table -->
+            <h3 style="color: #27a8d0; text-align: center;">LOANS DUE THIS WEEK</h3>
             <div class="card-body table-full-width table-responsive">
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Deposits</th>
-                                    <th>Status</th>
+                                    <th>Amount</th>
+                                    <th>Due Date</th>
                                   
                                 </thead>
                                 <tbody>
@@ -140,198 +106,121 @@
                                         <td>1</td>
                                         <td>Jjumba Benja</td>
                                         <td>2,300,000</td>
-                                        <td>Active</td>
+                                        <td>2023-08-15</td>
                                         
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>Loor Jacobson</td>
                                         <td>1,459,000</td>
-                                        <td>Inactive</td>
+                                        <td>2023-08-15</td>
                                         
                                     </tr>
                                     <tr>
                                         <td>3</td>
                                         <td>Ayiko Eddy</td>
                                         <td>750,000</td>
-                                        <td>Active</td>
-                                        
+                                        <td>2023-08-15</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
                                         <td>Naka Mary</td>
                                         <td>500,000</td>
-                                        <td>Inactive</td>
+                                        <td>2023-08-15</td>
                                         
                                     </tr>
                                    
                                    
                                 </tbody>
                             </table>
-                        </div>
-
+                        </div><div class="container-fluid" style="margin-top:50px">
+            
             <div class="row">
-                <div class="col-md-6">
-                    <div class="card ">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('Deposit summary yearly') }}</h4>
-                            <p class="card-category">{{ __('Deposits') }}</p>
-                        </div>
+                  <div class="col-md-6">
+                      <div class="card ">
                         <div class="card-body ">
-                            <div id="chartActivity" class="ct-chart"></div>
-                        </div>
-                        <div class="card-footer ">
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Full deposits') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Installment deposits') }}
+                            <div class="chart">
+                            <canvas id= "loanStatusChart" style="width: 500px; height: 370px;"></canvas>
                             </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-check"></i> {{ __('Data information certified') }}
-                            </div>
-                        </div>
+                         </div>
+                        
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <!-- <div class="card  card-tasks">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('Tasks') }}</h4>
-                            <p class="card-category">{{ __('Backend development') }}</p>
-                        </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="card ">
+                        
                         <div class="card-body ">
-                            <div class="table-full-width">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ __('Sign contract for "What are conference organizers afraid of?"') }}</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="" checked>
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ __('Lines From Great Russian Literature? Or E-mails From My Boss?') }}</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="" checked>
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ __('Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit') }}
-                                            </td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" checked>
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ __('Create 4 Invisible User Experiences you Never Knew About') }}</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ __('Read "Following makes Medium better"') }}</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="" disabled>
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ __('Unfollow 5 enemies from twitter') }}</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="chart">
+                                <canvas id= "approvedRejectedPieChart" style="width: 500px; height: 300px;"></canvas>
                             </div>
-                        </div>
-                        <div class="card-footer ">
-                            <hr>
-                            <div class="stats">
-                                <i class="now-ui-icons loader_refresh spin"></i> {{ __('Updated 3 minutes ago') }}
-                            </div>
-                        </div>
-                    </div> -->
+                         </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
+        
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript">
+        var ctx = document.getElementById('loanStatusChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                
+                labels: {!! json_encode(['Loans', 'Deposits']) !!},
+                datasets: [{
+                    label: 'Sacco Status',
+                    data: {!! json_encode([ 5000, 10000]) !!},
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 205, 86, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(153, 102, 255, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                    
+                }
+                
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById('approvedRejectedPieChart').getContext('2d');
+        var approvedRejectedPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Loans', 'Depsits'],
+                datasets: [{
+                    data: [5000, 10000], 
+                    backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
+                    borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            maintainAspectRatio: false
+            }
+        });
+    </script>
 @endsection
 
 @push('js')

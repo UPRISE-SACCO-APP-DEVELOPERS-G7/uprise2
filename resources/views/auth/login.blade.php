@@ -9,7 +9,8 @@
                         @csrf
                         <div class="card card-login card-hidden">
                             <div class="card-header ">
-                                <img src="{{ asset('light-bootstrap/img/log.png') }}" alt="" style = "width: 100px; height: 100px; display: flex; margin-right:auto; margin-left: auto;">
+        <img src="{{ asset('light-bootstrap/img/log.png') }}" alt=""
+         style = "width: 100px; height: 100px; display: flex; margin-right:auto; margin-left: auto;">
                                 <h3 class="header text-center">{{ __('Login') }}</h3>
                             </div>
                             <div class="card-body ">

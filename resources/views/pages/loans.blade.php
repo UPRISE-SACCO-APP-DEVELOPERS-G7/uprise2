@@ -21,6 +21,55 @@
                 <p style = "color: white">{{ $disapproved }}</p>
             </div>
         </div>
+        <div class="card-body table-full-width table-responsive">
+             <h3 style="color: green; text-align: center;">LOAN REQUESTS</h3>
+     <table class="table table-hover table-striped" id="myTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Amount</th>    
+            <th>Status
+            
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($loans as $loan)
+            <tr>
+                <td>{{ $loan->application_number }}</td>
+                <td>{{ $loan->amount }}</td>
+                <!-- <td>{{ $loan->request_status }}</td> -->
+                <!-- <td>
+                    @if ($loan->installments->count() > 0)
+                        <ul>
+                            @foreach ($loan->installments as $installment)
+                                <li>
+                                    Installment {{ $installment->installment_count }}: {{ $installment->installment_amount }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        No installments
+                    @endif
+                </td> -->
+                <td>
+                    <form action = "{{ route('submit_form') }}"  method ="post">
+                        @csrf
+                        <input type="hidden" id="id" name="loan_id" value="{{ $loan->application_number }}">
+                        <select name="loan_req" id="loan" onchange = 'this.form.submit()'>
+                            <option value="{{ $loan->request_status }}">{{ $loan->request_status }}</option>
+                            <option value="APPROVED">Approve</option>
+                            <option value="DISAPPROVED">Disapprove</option>
+                        </select>
+                    </form>
+                    </td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
+
+            </div>
 
         <div class="container-fluid" style="margin-top:50px">
             
@@ -40,7 +89,7 @@
                         
                         <div class="card-body ">
                             <div class="chart">
-                                <canvas id= "approvedRejectedPieChart" style="width: 500px; height: 300px;"></canvas>
+                            <canvas id= "approvedRejectedPieChart" style="width: 500px; height: 300px;"></canvas>
                             </div>
                          </div>
                         

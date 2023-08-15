@@ -56,5 +56,14 @@ class PageController extends Controller
         return abort(404);
     }
 
-   
+    public function magic(Request $request)
+    
+    {
+        $id = $request->loan_id;
+        $status = $request->loan_req;
+        // dd($status);
+        $loan = Loans::where('application_number', $id)->update(['request_status' => $status]);
+        return redirect()->back();
+    }
 }
+   

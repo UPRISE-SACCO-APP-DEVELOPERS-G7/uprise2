@@ -8,7 +8,8 @@ Tip 2: you can also add an image using data-image tag
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="http://www.creative-tim.com" class="simple-text">
-            <img src="{{asset('light-bootstrap/img/log.png')}}" alt=""  style="width:100px; height: 100; margin-left: 5px">
+            <img src="{{asset('light-bootstrap/img/log.png')}}" alt="" 
+             style="width:100px; height: 100; margin-left: 5px">
             </a>
         </div>
         <ul class="nav">
@@ -69,26 +70,16 @@ Tip 2: you can also add an image using data-image tag
                 <a class="nav-link" href="{{ route('all_loans') }}">
                 <i class="nc-icon nc-money-coins"></i>
                 Loans</a>
-                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">{{ __('Active Loans') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Pending Loans') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Paid Loans') }}</a>
-                    </div> -->
             </li>
 
             
-            <!-- <li class="nav-item @if($activePage == 'maps') active @endif">
-                <a class="nav-link" href="{{route('page.index', 'maps')}}">
-                    <i class="nc-icon nc-pin-3"></i>
-                    <p>{{ __("Maps") }}</p>
-                </a>
-            </li>
+            
              <li class="nav-item @if($activePage == 'notifications') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'notifications')}}">
-                    <i class="nc-icon nc-bell-55"></i>
-                    <p>{{ __("Notifications") }}</p>
+                    <i class="nc-icon nc-single-copy-04"></i>
+                    <p>{{ __("Reports") }}</p>
                 </a>
-            </li> --> 
+            </li>  
             <li class="nav-item">
                 <a class="nav-link active bg-danger" href="{{route('page.index', 'upgrade')}}">
                     <i class="nc-icon nc-alien-33"></i>

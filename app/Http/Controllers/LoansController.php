@@ -13,4 +13,13 @@ class LoansController extends Controller
        
         return view('pages.loan', compact($loans)); 
     }
+
+    public function magic(Request $request)
+    
+    {
+        $id = $request->input('loan_id');
+        $loan = Loans::find($id);
+        var_dump($loan);
+        return redirect()->back();
+    }
 }
