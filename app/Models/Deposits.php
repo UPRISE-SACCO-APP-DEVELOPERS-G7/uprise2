@@ -4,14 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Deposit extends Model
+class Deposits extends Model
 {
-    protected $table = 'deposits';
+    protected $table = 'deposits_table';
 
     protected $fillable = [
         'amount',
+        'name',
         'member_id', // Adjust this based on the correct column name in your database
-    ];
+         ];
 
     protected $casts = [
         'amount' => 'double',

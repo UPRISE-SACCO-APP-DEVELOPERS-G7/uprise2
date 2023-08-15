@@ -13,9 +13,10 @@ class CreateDepositsTable extends Migration
      */
     public function up()
     {
-        Schema::create('deposits', function (Blueprint $table) {
+        Schema::create('deposits_table', function (Blueprint $table) {
             $table->bigIncrements('receipt_number');
             $table->double('amount');
+            $table->string('name')->nullbale();
             $table->unsignedBigInteger('member_id')->nullable();
             $table->timestamps(); // This will automatically add `created_at` and `updated_at` columns
             

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Claim;
+use App\Models\Deposits;
 
 
 class PageController extends Controller
@@ -22,6 +23,7 @@ class PageController extends Controller
       //     'claims'=>$claims,
          
       //   ])
+     // dd($page);
       
 
       if ($page == 'maps') {
@@ -29,10 +31,13 @@ class PageController extends Controller
           return view("pages.maps", [
               'claims' => $claims,
           ]);
-      }
-      
-        
-        if($page == 'members'){
+      }elseif($page == 'typography') {
+        $deposits = Deposits::all(); 
+        //dd($deposits);
+        return view("pages.typography", [
+            'deposits' => $deposits,
+        ]);
+      }elseif($page == 'members'){
           $members=Member::all();
           return view("pages.members", [
             'members'=>$members,
