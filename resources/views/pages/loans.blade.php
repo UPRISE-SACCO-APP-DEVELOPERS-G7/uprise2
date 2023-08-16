@@ -39,20 +39,7 @@
             <tr>
                 <td>{{ $loan->application_number }}</td>
                 <td>{{ $loan->amount }}</td>
-                <!-- <td>{{ $loan->request_status }}</td> -->
-                <!-- <td>
-                    @if ($loan->installments->count() > 0)
-                        <ul>
-                            @foreach ($loan->installments as $installment)
-                                <li>
-                                    Installment {{ $installment->installment_count }}: {{ $installment->installment_amount }}
-                                </li>
-                            @endforeach
-                        </ul>
-                    @else
-                        No installments
-                    @endif
-                </td> -->
+               
                 <td>
                     <form action = "{{ route('submit_form') }}"  method ="post">
                         @csrf

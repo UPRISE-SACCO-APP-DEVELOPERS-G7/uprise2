@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Loans;
+use PDF;
+
 
 class PageController extends Controller
 {
@@ -14,6 +16,14 @@ class PageController extends Controller
      */
     public function index($page)
     {
+        if($page == "generate-pdf"){
+
+            $data = ['title' => 'My PDF Report'];
+        $pdf = PDF::loadView('pages.notifications', $data); 
+        $pdf->setPaper('A4', 'portrait');
+        return $pdf->download('report.pdf');
+        }else{
+
         $loans = Loans::with('installments')->get(); 
         $loans = Loans::all();
         $pending = $accepted = $disapproved = $shortlisted = $approved = $rejected = 0;
@@ -37,7 +47,8 @@ class PageController extends Controller
                     $disapproved++;   
                 }
         }
-       
+        $totalLoans = $pending + $accepted + $shortlisted + $disapproved + $approved + $rejected;
+        $loansPercentage = ($totalLoans > 0) ? (($approved / $totalLoans) * 100) : 0;
         $data = array('loans' => $loans, 
                         'deposits'=> [],
                          'pending'=>$pending, 
@@ -48,12 +59,15 @@ class PageController extends Controller
                          'activePage' => $page,
                          'rejected' => $rejected,
                          'activeButton' => 'laravel',
+                         'loansPercentage' => $loansPercentage,
                          
                     );
         if (view()->exists("pages.{$page}")) {
             return view("pages.{$page}")->with($data);
         }
         return abort(404);
+    }
+
     }
 
     public function magic(Request $request)
@@ -65,5 +79,13 @@ class PageController extends Controller
         $loan = Loans::where('application_number', $id)->update(['request_status' => $status]);
         return redirect()->back();
     }
+    // public function generatePdf()
+    // {
+        
+    //     $data = ['title' => 'My PDF Report'];
+    //     $pdf = PDF::loadView('pages.notifications', $data); 
+    //     $pdf->setPaper('A4', 'portrait');
+    //     return $pdf->download('report.pdf');
+    // }
 }
    
