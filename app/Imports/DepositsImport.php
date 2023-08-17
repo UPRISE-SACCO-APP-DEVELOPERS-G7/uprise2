@@ -2,10 +2,12 @@
 
 namespace App\Imports;
 
-use App\Models\Deposits;
-use Maatwebsite\Excel\Concerns\ToModel;
 
-class DepositsImport implements ToModel
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use App\Models\Deposit;
+
+class DepositsImport implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -14,9 +16,9 @@ class DepositsImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Deposits([
-            'amount' => $row[0],
-            'member_id' => $row[1],
+        return new Deposit([
+            'amount' => $row["amount"],
+            'member_id' => $row["member_id"],
         ]);
     }
 }
