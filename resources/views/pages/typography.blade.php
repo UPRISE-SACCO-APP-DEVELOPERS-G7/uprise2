@@ -29,17 +29,39 @@
                                 </tbody>
                             </table>
                         </div>
-
-                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <div class="row">
+                  <div class="col-md-6">
+                      <div class="card ">
+                        <div class="card-body ">
+                            <div class="chart">
+                            <canvas id= "loanStatusChart" style="width: 500px; height: 350px;"></canvas>
+                            </div>
+                         </div>
+                        
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="card ">
+                        
+                        <div class="card-body ">
+                            <div class="chart">
+                                <canvas id= "approvedRejectedPieChart" style="width: 500px; height: 300px;"></canvas>
+                            </div>
+                         </div>
+                        
+                    </div>
+                </div>
+            </div>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>,
     <script type="text/javascript">
         var ctx = document.getElementById('loanStatusChart').getContext('2d');
         var myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
-                labels: {!! json_encode(['Approved', 'Shortlisted', 'Disapproved', 'Pending', 'Accepted', 'Rejected']) !!},
+                labels: {!! json_encode(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']) !!},
                 datasets: [{
-                    label: 'Loan Status',
-                    data: {!! json_encode([ $approved,$shortlisted, $disapproved, $pending, $accepted, $rejected]) !!},
+                    label: 'Deposit status',
+                    data: {!! json_encode([ 100,400, 600, 730, 630,400,650,120,500,750,900,200]) !!},
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)',
                         'rgba(255, 99, 132, 0.2)',
@@ -73,12 +95,13 @@
     <script>
         var ctx = document.getElementById('approvedRejectedPieChart').getContext('2d');
         var approvedRejectedPieChart = new Chart(ctx, {
-            type: 'pie',
+            type: 'doughnut',
             data: {
-                labels: ['Approved', 'Rejected'],
+                labels: ['Weekly Deposits', 'Monthly Deposits', 'Annually Deposits'],
                 datasets: [{
-                    data: [{{ 809 }}, {{ 900}}], 
-                    backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
+                    data: [{{ 90 }}, {{ 200}}, {{ 900}}], 
+                    
+                    backgroundColor: ['rgba(0, 0, 128, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(173, 216, 230, 0.2)'],
                     borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)'],
                     borderWidth: 1
                 }]
@@ -89,6 +112,8 @@
             }
         });
     </script>
+
+    
     @endsection
 
 
