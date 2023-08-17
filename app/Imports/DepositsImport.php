@@ -15,7 +15,8 @@ class DepositsImport implements ToModel
     public function model(array $row)
     {
         return new Deposits([
-            
+            'amount' => $row[0],
+            'member_id' => $row[1],
         ]);
     }
 }
