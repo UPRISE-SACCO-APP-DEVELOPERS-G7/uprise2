@@ -38,5 +38,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/loans', 'App\Http\Controllers\LoansController@loans')->name('all_loans');
     Route::post('/loans','App\Http\Controllers\PageController@magic')->name('submit_form');
 	Route::get('/generate-pdf', 'App\Http\PageController@generatePdf')->name('generate_pdf');
-    Route::post('/excel','App\Http\PageController@import')->name('excel');
+    Route::post('/excel','App\Http\Controllers\PageController@import')->name('excel');
 });
