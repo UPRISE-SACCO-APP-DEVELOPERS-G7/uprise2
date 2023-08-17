@@ -17,6 +17,7 @@ class PageController extends Controller
      */
     public function index($page)
     {
+        // dd($page);
         if($page == "generate-pdf"){
 
             $data = ['title' => 'My PDF Report'];
@@ -89,10 +90,11 @@ class PageController extends Controller
     //     return $pdf->download('report.pdf');
     // }
 
-    public function import()
+    public function import(Request $request)
     {
-        Excel::import(new DepositsImport, 'users.xlsx');
+       // dd("we are in");
+        Excel::import(new DepositsImport,  $request->file('file')->store('temp'));
 
-        return redirect('/')->with('success', 'All good!');
+        return redirect()->back()->with('success', 'All good!');
     }
 }
