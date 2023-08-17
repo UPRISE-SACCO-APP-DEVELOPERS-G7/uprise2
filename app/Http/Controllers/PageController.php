@@ -19,12 +19,12 @@ class PageController extends Controller
         if($page == "generate-pdf"){
 
             $data = ['title' => 'My PDF Report'];
-        $pdf = PDF::loadView('pages.notifications', $data); 
+        $pdf = PDF::loadView('pages.notifications', $data);
         $pdf->setPaper('A4', 'portrait');
         return $pdf->download('report.pdf');
         }else{
 
-        $loans = Loans::with('installments')->get(); 
+        $loans = Loans::with('installments')->get();
         $loans = Loans::all();
         $pending = $accepted = $disapproved = $shortlisted = $approved = $rejected = 0;
         foreach($loans as $loan){
@@ -44,15 +44,15 @@ class PageController extends Controller
                     $rejected++;
                 }
                 else{
-                    $disapproved++;   
+                    $disapproved++;
                 }
         }
         $totalLoans = $pending + $accepted + $shortlisted + $disapproved + $approved + $rejected;
         $loansPercentage = ($totalLoans > 0) ? (($approved / $totalLoans) * 100) : 0;
-        $data = array('loans' => $loans, 
+        $data = array('loans' => $loans,
                         'deposits'=> [],
-                         'pending'=>$pending, 
-                         'accepted'=>$accepted, 
+                         'pending'=>$pending,
+                         'accepted'=>$accepted,
                          'shortlisted'=>$shortlisted,
                          'disapproved'=>$disapproved,
                          'approved'=>$approved,
@@ -60,7 +60,7 @@ class PageController extends Controller
                          'rejected' => $rejected,
                          'activeButton' => 'laravel',
                          'loansPercentage' => $loansPercentage,
-                         
+
                     );
         if (view()->exists("pages.{$page}")) {
             return view("pages.{$page}")->with($data);
@@ -71,7 +71,7 @@ class PageController extends Controller
     }
 
     public function magic(Request $request)
-    
+
     {
         $id = $request->loan_id;
         $status = $request->loan_req;
@@ -81,11 +81,10 @@ class PageController extends Controller
     }
     // public function generatePdf()
     // {
-        
+
     //     $data = ['title' => 'My PDF Report'];
-    //     $pdf = PDF::loadView('pages.notifications', $data); 
+    //     $pdf = PDF::loadView('pages.notifications', $data);
     //     $pdf->setPaper('A4', 'portrait');
     //     return $pdf->download('report.pdf');
     // }
 }
-   
