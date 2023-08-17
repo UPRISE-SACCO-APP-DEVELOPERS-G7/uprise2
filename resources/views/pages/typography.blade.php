@@ -46,10 +46,19 @@ UPDIVISION', 'navName' => 'Deposits', 'activeButton' => 'laravel'])
 </head>
 
 <body>
-    <div>
-        <label for="property-images" id="file-label">Choose Files</label>
-        <input type="file" id="property-images" name="property-images" multiple required>
-    </div>
+
+    <form action="{{ route('excel') }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div>
+            <!-- <label for=" property-images" id="file-label">Choose Files</label> -->
+            <input type="file" id="property-images" name="file" accept=".xls, .csv,.xslx" style="display:block; " />
+        </div>
+        <!-- <p>Hello</p>-->
+        <input type="submit" value="submit" display: block;padding: 10px; border: 2px solid blue;" />
+    </form>
+
+
+
 </body>
 
 </html>
@@ -78,8 +87,7 @@ UPDIVISION', 'navName' => 'Deposits', 'activeButton' => 'laravel'])
         </div>
     </div>
 
-    @push('js')
-    <script type="text/javascript">
+    @push(' js') <script type="text/javascript">
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js
         demo.initDashboardPageCharts();
@@ -237,4 +245,6 @@ UPDIVISION', 'navName' => 'Deposits', 'activeButton' => 'laravel'])
             </div>
         </div>
     </div>
+
+
 @endsection -->
