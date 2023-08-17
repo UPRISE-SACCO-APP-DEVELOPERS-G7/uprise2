@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Imports\DepositsImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Models\Loans;
-use PDF;
 
+use PDF;
 
 class PageController extends Controller
 {
@@ -87,4 +88,11 @@ class PageController extends Controller
     //     $pdf->setPaper('A4', 'portrait');
     //     return $pdf->download('report.pdf');
     // }
+
+    public function import()
+    {
+        Excel::import(new DepositsImport, 'users.xlsx');
+
+        return redirect('/')->with('success', 'All good!');
+    }
 }

@@ -34,12 +34,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
-	
 	// Route::get('/loans', 'App\Http\Controllers\PageController@loans')->name('all_loans');
 	Route::get('/loans', 'App\Http\Controllers\LoansController@loans')->name('all_loans');
     Route::post('/loans','App\Http\Controllers\PageController@magic')->name('submit_form');
 	Route::get('/generate-pdf', 'App\Http\PageController@generatePdf')->name('generate_pdf');
-
+    Route::post('/excel','App\Http\PageController@import')->name('excel');
 });
-
-
