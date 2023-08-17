@@ -22,16 +22,16 @@ class PageController extends Controller
       //   $claims=Claim::all();
       //   return view("pages.claims", [
       //     'claims'=>$claims,
-         
+
       //   ])
      // dd($page);
-      
+
 
       if ($page == 'maps') {
-          $claims = \App\Models\Claim::all(); 
+          $claims = \App\Models\Claim::all();
           return view("pages.maps", ['claims' => $claims,]);
       }elseif($page == 'typography') {
-        $deposits = Deposits::all(); 
+        $deposits = Deposits::all();
         // dd($deposits);
         // $trial = $deposits[0]['created_at'];
         //$date = $model->created_at->toDateString();
@@ -40,28 +40,28 @@ class PageController extends Controller
        //$endDate = Carbon::create(2023, 8, 16);
        $sample = $this->sortMonths();
        echo json_encode($sample);
-
+    //$this->sortMonths();
        $start_time = \Carbon\Carbon::parse('2023-08-08');
         $finish_time = \Carbon\Carbon::parse('2023-08-16');
         $result = $start_time->diffInDays($finish_time, false);
         $nows=new \DateTime();
-       echo $nows->format('Y-m-d');
+        //  echo $nows->format('Y-m-d') ;
         $now = Carbon::now();
 
         // dd($nows);
-        //echo $now; 
+        //echo $now;
         //die();
 
     //    $result = $deposits[3]->created_at->toDateString() -$deposits[0]->created_at->toDateString();
       // dd($result);
 
-      
+
         foreach($deposits as $depts){
             $date_from_db = \Carbon\Carbon::parse($depts->created_at->toDateString());
            //echo $date . '<br />';
         }
         die();
-        
+
         return view("pages.typography", [
             'deposits' => $deposits,
         ]);
@@ -77,7 +77,7 @@ class PageController extends Controller
             }
             return abort(404);
         }
-       
+
     }
 
    public function createMember(Request $request)
@@ -100,7 +100,7 @@ class PageController extends Controller
     return view("pages.members", [
         "members" => $members,
         "message"=> $member->username . " registered successfully"
-    ]);    
+    ]);
 
    }
 
@@ -113,17 +113,17 @@ class PageController extends Controller
           'members'=>$members,
           'message'=> ""
 
-        ]); 
-        return view("pages.members");      
-    }   
+        ]);
+        return view("pages.members");
+    }
    public function dashboard()
    {
     return view("pages.dashboard");
    }
-   
+
    public static function sortMonths()
    {
-     
+
      $m = $x = array();
      $deposits = Deposits::all();
      //$months = ["January", "February", "March", "April", "May", "June", "July", "August","September", "October", "November", "December"];
@@ -134,17 +134,30 @@ class PageController extends Controller
        }
 
      foreach($deposits as $value){
-        $date = Carbon::parse($value->created_at);
+        $date = Carbon::parse($value->created_at)->format('m');
         // array_push($m, $date->month );
+        //echo $date;
+        $sum = 0;
         foreach($months as $month)
        {
-          if($month == $date->month){
-            $x[$month] = + 1;
-          }
+
+
+        if($month == $date+0){
+            $x[$month-1]['total'] = $x[$month-1]['total'] + $value->amount;
+           // echo $x[$month-1]['total'];
+        }
+         // if($month == $date->month)
+        //   foreach($x as $y){
+        //     if($y['month'] == $date->month){
+        //         $y['total'] = + 1;
+
+        //       }
+        //  }
        }
-       $date = 0;
+
      }
 
-     return $x;
-   }
+    return $x;
+
+  }
 }
