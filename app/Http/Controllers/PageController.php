@@ -5,6 +5,7 @@ use App\Imports\DepositsImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Models\Loans;
+use App\Models\Member;
 
 use PDF;
 
@@ -28,6 +29,7 @@ class PageController extends Controller
 
         $loans = Loans::with('installments')->get();
         $loans = Loans::all();
+        $members = Member::all();
         $pending = $accepted = $disapproved = $shortlisted = $approved = $rejected = 0;
         foreach($loans as $loan){
                 if($loan->request_status == "ACCEPTED"){
@@ -53,6 +55,7 @@ class PageController extends Controller
         $loansPercentage = ($totalLoans > 0) ? (($approved / $totalLoans) * 100) : 0;
         $data = array('loans' => $loans,
                         'deposits'=> [],
+                         'members' => $members,
                          'pending'=>$pending,
                          'accepted'=>$accepted,
                          'shortlisted'=>$shortlisted,
