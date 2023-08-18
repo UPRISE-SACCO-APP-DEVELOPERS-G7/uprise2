@@ -1,6 +1,7 @@
-@extends('layouts.app', ['activePage' => 'dashboard', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'Loans', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'dashboard', 'title' => 'Notifications', 'navName' => 'Loans', 'activeButton'
+=> 'laravel'])
 @section('content')
-<div class="row" >
+<div class="row">
     <div class="col-md-3">
         <div class="card">
             <div class="card-body">
@@ -51,61 +52,69 @@
     </div>
 </div>
 <div class="row">
-<div class="col-md-6">
-                    <div class="card ">
-                        
-                        <div class="card-body ">
-                            <div class="chart">
-                            <canvas id= "myChart" style="width: 500px; height: 300px;"></canvas>
-                            </div>
-                         </div>
-                        
-                    </div>
+    <div class="col-md-6">
+        <div class="card ">
+
+            <div class="card-body ">
+                <div class="chart">
+                    <canvas id="myChart" style="width: 500px; height: 300px;"></canvas>
                 </div>
-                <div class="col-md-6">
-                    <div class="card ">
-                        
-                        <div class="card-body ">
-                            <div class="chart">
-                            <canvas id= "PieChart" style="width: 400px; height:275px;"></canvas>
-                            </div>
-                         </div>
-                        
-                    </div>
-                </div>             
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card ">
+
+            <div class="card-body ">
+                <div class="chart">
+                    <canvas id="PieChart" style="width: 400px; height:275px;"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 <a href="{{ route('generate_pdf') }}" class="btn btn-primary">Generate PDF Report</a>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    var ctx = document.getElementById('loansPercentageDoughnutChart').getContext('2d');
-    var loansPercentageDoughnutChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Loans', 'Empty'],
-            datasets: [{
-                data: [{{ $loansPercentage }}, {{ 100 - $loansPercentage }}],
-                backgroundColor: ['rgba(75, 192, 192, 0.8)', 'rgba(0, 0, 0, 0)'],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            cutoutPercentage: 70,
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false
-                },
-                tooltip: {
-                    enabled: false
+var ctx = document.getElementById('loansPercentageDoughnutChart').getContext('2d');
+var loansPercentageDoughnutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Loans', 'Empty'],
+        datasets: [{
+            data: [{
+                {
+                    $loansPercentage
                 }
+            }, {
+                {
+                    100 - $loansPercentage
+                }
+            }],
+            backgroundColor: ['rgba(75, 192, 192, 0.8)', 'rgba(0, 0, 0, 0)'],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        cutoutPercentage: 70,
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false
+            },
+            tooltip: {
+                enabled: false
             }
         }
-    });
+    }
+});
 </script>
 <script>
-    var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -122,10 +131,9 @@ var myChart = new Chart(ctx, {
         responsive: true
     }
 });
-
 </script>
 <script>
- var ctx = document.getElementById('PieChart').getContext('2d');
+var ctx = document.getElementById('PieChart').getContext('2d');
 var loanDepositPieChart = new Chart(ctx, {
     type: 'pie',
     data: {
@@ -147,48 +155,41 @@ var loanDepositPieChart = new Chart(ctx, {
         }
     }
 });
-
 </script>
 @endsection
 
 <style>
-    .chart-container {
-        position: relative;
-        width: 100px;
-        height: 100px;
-    }
+.chart-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
 
-    .chart-center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        font-size: 16px;
-        font-weight: bold;
-        color: #000;
-    }
-    .chart-container-square {
-        position: relative;
-        width: 100px;
-        height: 100px;
-    }
+.chart-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
 
-    .chart-center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        font-size: 16px;
-        font-weight: bold;
-        color: #000;
-    }
+.chart-container-square {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.chart-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
 </style>
-
-
-
-
-
-
-
