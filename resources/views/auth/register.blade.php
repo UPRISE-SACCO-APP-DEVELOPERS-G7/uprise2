@@ -18,7 +18,7 @@ UPDIVISION'])
                                 </div>
                                 <div class="media-body">
                                     <h4>{{ __('Free Account') }}</h4>
-                                    <p>{{ __('Here you can write a feature description for your dashboard, let the users know what is the value that you give them.') }}
+                                    <p>{{ __('Unlock financial freedom with our loan Management System. Sign Up now for your free account') }}
                                     </p>
                                 </div>
                             </div>
