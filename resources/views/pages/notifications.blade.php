@@ -68,7 +68,7 @@
 
             <div class="card-body ">
                 <div class="chart">
-                    <canvas id="PieChart" style="width: 400px; height:275px;"></canvas>
+                    <canvas id="PieChart" style="width: 800px; height:275px;"></canvas>
                 </div>
             </div>
 
@@ -90,8 +90,14 @@
                 @foreach ($members as $loan)
                 <tr>
                     <td>{{ $loan->id }}</td>
-
                     <td>{{ $loan->username }}</td>
+                    <td>{{ $loan->phone }}</td>
+                    <td>{{ $loan->email }}</td>
+                    <td>{{ $loan->status }}</td>
+                    <td>{{ $loan->membership_type }}</td>
+                    <td>{{ $loan->created_at}}</td>
+
+
 
 
                 </tr>
