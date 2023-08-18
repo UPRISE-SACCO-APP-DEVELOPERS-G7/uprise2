@@ -74,6 +74,15 @@
 
         </div>
     </div>
+
+    <div class="col-md-6">
+        <div class="card ">
+            @foreach ($members as $loan)
+            <div>{{ $loan->first_name }}</div>
+            <div>{{ $loan->last_name }}</div>
+            @endforeach
+        </div>
+    </div>
 </div>
 <a href="{{ route('generate_pdf') }}" class="btn btn-primary">Generate PDF Report</a>
 
