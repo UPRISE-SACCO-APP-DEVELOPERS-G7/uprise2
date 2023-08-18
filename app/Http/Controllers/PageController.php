@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Claim;
-use App\Models\Deposits;
+use App\Models\Deposit;
 use Carbon\Carbon;
 
 
@@ -31,7 +31,7 @@ class PageController extends Controller
           $claims = \App\Models\Claim::all();
           return view("pages.maps", ['claims' => $claims,]);
       }elseif($page == 'typography') {
-        $deposits = Deposits::all();
+        $deposits = Deposit::all();
         // dd($deposits);
         // $trial = $deposits[0]['created_at'];
         //$date = $model->created_at->toDateString();
@@ -125,7 +125,7 @@ class PageController extends Controller
    {
 
      $m = $x = array();
-     $deposits = Deposits::all();
+     $deposits = Deposit::all();
      //$months = ["January", "February", "March", "April", "May", "June", "July", "August","September", "October", "November", "December"];
      $months = [1,2,3,4,5,6,7,8,9,10,11,12];
      foreach($months as $month)

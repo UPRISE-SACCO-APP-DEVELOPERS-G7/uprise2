@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Deposits extends Model
+class Deposit extends Model
 {
-    protected $table = 'deposits_table';
+    protected $table = 'deposits';
 
     protected $fillable = [
         'amount',
