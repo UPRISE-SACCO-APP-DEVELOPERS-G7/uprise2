@@ -30,7 +30,7 @@ UPDIVISION'])
                                 </div>
                                 <div class="media-body">
                                     <h4>{{ __('Awesome Performances') }}</h4>
-                                    <p>{{ __('Empowering your asperations: Experience our tailored financial solution with our Awesome loan Management System') }}
+                                    <p>{{ __('Empowering your asperations: Experience our tailored financial solution with our Awesome loan Management System.') }}
                                     </p>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ UPDIVISION'])
                                 </div>
                                 <div class="media-body">
                                     <h4>{{ __('Easy To Use') }}</h4>
-                                    <p>{{ __('Here you can write a feature description for your dashboard, let the users know what is the value that you give them.') }}
+                                    <p>{{ __('Seamlessly pursue your financial goals with the user friendly and awesome uprise loan Management System.') }}
                                     </p>
                                 </div>
                             </div>
