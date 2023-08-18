@@ -68,7 +68,7 @@
 
             <div class="card-body ">
                 <div class="chart">
-                    <canvas id="PieChart" style="width: 800px; height:275px;"></canvas>
+                    <canvas id="PieChart" style="width: 400px; height:275px;"></canvas>
                 </div>
             </div>
 
