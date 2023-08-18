@@ -16,7 +16,7 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($page)
+    public function index(Request $request,$page)
     {
         // dd($page);
         if($page == "generate-pdf"){
@@ -29,7 +29,13 @@ class PageController extends Controller
 
         $loans = Loans::with('installments')->get();
         $loans = Loans::all();
-        $members = Member::all();
+
+        if(request('search')){
+            $members = Member::where('username', 'like', '%' .request('search'). '%');
+        }else{
+            $members = Member::all();
+        }
+
         $pending = $accepted = $disapproved = $shortlisted = $approved = $rejected = 0;
         foreach($loans as $loan){
                 if($loan->request_status == "ACCEPTED"){
