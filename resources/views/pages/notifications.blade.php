@@ -77,10 +77,28 @@
 
     <div class="col-md-6">
         <div class="card ">
-            @foreach ($members as $loan)
-            <div>{{ $loan->first_name }}</div>
-            <div>{{ $loan->last_name }}</div>
-            @endforeach
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Membership Type</th>
+                    <th>Created</th>
+                </tr>
+                @foreach ($members as $loan)
+                <tr>
+                    <td>{{ $loan->id }}</td>
+
+                    <td>{{ $loan->username }}</td>
+
+
+                </tr>
+
+                @endforeach
+            </table>
+
         </div>
     </div>
 </div>
