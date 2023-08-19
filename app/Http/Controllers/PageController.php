@@ -16,9 +16,23 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request,$page)
+    public function index($page)
     {
         // dd($page);
+
+        if($page == "notifications"){
+
+            if(request('search')){
+                $members = Member::where('username', 'like', '%' .request('search'). '%');
+
+                return view('pages.notifications')->with("members" , $members);
+
+            }else{
+                $members = Member::all();
+                // return view('pages.notifications')->with("members" , $members);
+            }
+        }
+
         if($page == "generate-pdf"){
 
             $data = ['title' => 'My PDF Report'];
@@ -30,11 +44,8 @@ class PageController extends Controller
         $loans = Loans::with('installments')->get();
         $loans = Loans::all();
 
-        if(request('search')){
-            $members = Member::where('username', 'like', '%' .request('search'). '%');
-        }else{
-            $members = Member::all();
-        }
+
+        // return view('member')->with('members', $members);
 
         $pending = $accepted = $disapproved = $shortlisted = $approved = $rejected = 0;
         foreach($loans as $loan){
