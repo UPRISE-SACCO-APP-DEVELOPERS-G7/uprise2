@@ -77,7 +77,7 @@
 
     <div class="col-md-6">
         <div class="card ">
-            <input type="search" class="form-control" placeholder="Find user here" name="search"
+            <input type="search" class="form-control" placeholder="Find member here" name="search"
                 value="{{ request('search') }}">
             <table>
                 <tr>
