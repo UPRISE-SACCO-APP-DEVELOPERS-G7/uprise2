@@ -1,4 +1,5 @@
-@extends('layouts.app', ['activePage' => 'deposits', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'Deposits', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'deposits', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim &
+UPDIVISION', 'navName' => 'Deposits', 'activeButton' => 'laravel'])
 
 @section('content')
 
@@ -7,98 +8,113 @@
                 <input type="file" id="property-images" name="property-images" multiple required>
               </div> -->
 
-              <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <head>
-  <title>File Input Styling</title>
-  <style>
+    <title>File Input Styling</title>
+    <style>
     /* Hide the default file input text */
     input[type="file"] {
-      display: none;
+        display: none;
     }
 
     /* Style the label to look like a button */
     label#file-label {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: blue;
-      color: white;
-      cursor: pointer;
-      font-weight: bold; /* Make the text bold */
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: blue;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        /* Make the text bold */
     }
 
     /* Hide the label text when files are chosen */
-    input[type="file"]:valid + label#file-label {
-      display: none;
+    input[type="file"]:valid+label#file-label {
+        display: none;
     }
 
     /* Show the custom "No file chosen" text when files are not chosen */
-    input[type="file"]:not(:valid) + label#file-label::before {
-      content: "No file chosen";
-      color: black;
-      font-weight: normal; /* Make the custom text normal weight */
+    input[type="file"]:not(:valid)+label#file-label::before {
+        content: "No file chosen";
+        color: black;
+        font-weight: normal;
+        /* Make the custom text normal weight */
     }
-  </style>
+    </style>
 </head>
+
 <body>
-  <div>
-    <label for="property-images" id="file-label">Choose Files</label>
-    <input type="file" id="property-images" name="property-images" multiple required>
-  </div>
+
+    <form action="{{ route('excel') }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div>
+            <!-- <label for=" property-images" id="file-label">Choose Files</label> -->
+            <input type="file" id="property-images" name="file" accept=".xls, .csv,.xslx" style="display:block; " />
+        </div>
+        <!-- <p>Hello</p>-->
+        <input type="submit" value="submit" display: block;padding: 10px; border: 2px solid blue;" />
+    </form>
+
+
+
 </body>
+
 </html>
 
-              
-              
+
+
 <div class="row" style="margin-top:50px; padding: 0px 10px; display: flex; justify-content:space-center; width: 100% ">
-                <div class="col-md-5">
-                    <div class="card ">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('Summary of Deposits') }}</h4>
-                            <p class="card-category">{{ __('Deposits in a day, month and year') }}</p>
-                        </div>
-                        <div class="card-body ">
-                            <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Yearly Deposits') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Monthyly Deposits') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Daily Deposits') }}
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-clock-o"></i> {{ __('Campaign sent 2 days ago') }}
-                            </div>
-                        </div>
-                    </div>
+    <div class="col-md-5">
+        <div class="card ">
+            <div class="card-header ">
+                <h4 class="card-title">{{ __('Summary of Deposits') }}</h4>
+                <p class="card-category">{{ __('Deposits in a day, month and year') }}</p>
+            </div>
+            <div class="card-body ">
+                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                <div class="legend">
+                    <i class="fa fa-circle text-info"></i> {{ __('Yearly Deposits') }}
+                    <i class="fa fa-circle text-danger"></i> {{ __('Monthyly Deposits') }}
+                    <i class="fa fa-circle text-warning"></i> {{ __('Daily Deposits') }}
                 </div>
+                <hr>
+                <div class="stats">
+                    <i class="fa fa-clock-o"></i> {{ __('Campaign sent 2 days ago') }}
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    @push('js')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // Javascript method's body can be found in assets/js/demos.js
-            demo.initDashboardPageCharts();
+    @push(' js') <script type="text/javascript">
+    $(document).ready(function() {
+        // Javascript method's body can be found in assets/js/demos.js
+        demo.initDashboardPageCharts();
 
-            demo.showNotification();
+        demo.showNotification();
 
-        });
+    });
     </script>
-@endpush
+    @endpush
 
 
-        <div class="col-md-7" style="">
+    <div class="col-md-7" style="">
         <div style="display: flex; flex-direction: column; gap: 10px;" class="row">
             <div class="" style="width: 100%">
-                <div class="rounded-rectangle " style="width: 100%; height: 200px; background-color:White; padding: 20px;border-radius: 10px;">
+                <div class="rounded-rectangle "
+                    style="width: 100%; height: 200px; background-color:White; padding: 20px;border-radius: 10px;">
                     <!-- <p>Collection Statistics</p> -->
                     <p><strong>Collection Statistics</strong></p>
 
-                    <div class="rounded-rectangle " style="width: 100%; height: 30px; background:Blue; padding: 20px;border-radius: 10px;">
-                    <p>20% Completed Deposits For Monthly Target</p>
-    
-                <!-- </div>id" style="width: 100%"> -->
-                <!-- <div class="row">
+                    <div class="rounded-rectangle "
+                        style="width: 100%; height: 30px; background:Blue; padding: 20px;border-radius: 10px;">
+                        <p>20% Completed Deposits For Monthly Target</p>
+
+                        <!-- </div>id" style="width: 100%"> -->
+                        <!-- <div class="row">
                     <div class=""> -->
-                        <div class="card " >
+                        <div class="card ">
                             <div class="card-header ">
                                 <h4 class="card-title">{{ __('Deposit summary yearly') }}</h4>
                                 <p class="card-category">{{ __('Deposits') }}</p>
@@ -117,20 +133,20 @@
                                 </div>
                             </div>
                         </div>
-                    <!-- </div>
+                        <!-- </div>
                 </div> -->
+                    </div>
+                </div>
+
+
             </div>
+
+
         </div>
 
-        
-    </div>
 
-   
-    </div>
 
-   
-
-    <!-- <div class="content">
+        <!-- <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -229,8 +245,6 @@
             </div>
         </div>
     </div>
+
+
 @endsection -->
-
-
-
-

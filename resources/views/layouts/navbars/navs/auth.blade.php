@@ -57,10 +57,14 @@
                 <li class="nav-item">
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <a class="text-danger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Log out') }} </a>
+                        <a class="text-danger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit(); "> {{ __('Log out') }} </a>
                     </form>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<script>
+    history.pushState(null, null, location.href);
+    window.onpopstate = function(){history.go(1);}
+</script>

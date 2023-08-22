@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Imports\DepositsImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Models\Loans;
-use PDF;
+use App\Models\Member;
 
+use PDF;
 
 class PageController extends Controller
 {
@@ -17,6 +19,7 @@ class PageController extends Controller
      */
     public function index($page)
     {
+
        
         $installments = 12; // You can replace 12 with the actual number of installments
         $interest = 5;
@@ -27,7 +30,37 @@ class PageController extends Controller
         $approvedLoans = Loans::where('request_status', 'APPROVED')->get();
         $recoveredLoans = Loans::where('request_status', 'RECOVERED')->get();
 
+        // dd($page);
+
+        if($page == "notifications"){
+
+            if(request('search')){
+                $members = Member::where('username', 'like', '%' .request('search'). '%');
+
+                return view('pages.notifications')->with("members" , $members);
+
+            }else{
+                $members = Member::all();
+                // return view('pages.notifications')->with("members" , $members);
+            }
+        }
+        $members = Member::all();
+
+        if($page == "generate-pdf"){
+
+            $data = ['title' => 'My PDF Report'];
+        $pdf = PDF::loadView('pages.notifications', $data);
+        $pdf->setPaper('A4', 'portrait');
+        return $pdf->download('report.pdf');
+        } else{
+
+        $loans = Loans::with('installments')->get();
+
         $loans = Loans::all();
+
+
+        // return view('member')->with('members', $members);
+
         $pending = $accepted = $disapproved = $shortlisted = $approved = $rejected = 0;
 
         foreach($loans as $loan){
@@ -45,11 +78,12 @@ class PageController extends Controller
                     $rejected++;
                 }
                 else{
-                    $disapproved++;   
+                    $disapproved++;
                 }
         }
         $totalLoans = $pending + $accepted + $shortlisted + $disapproved + $approved + $rejected;
         $loansPercentage = ($totalLoans > 0) ? (($approved / $totalLoans) * 100) : 0;
+
         $shortlisted = $approved + $disapproved;
         $interest = ($loan->interest_rate/100) * $loan -> amount;
         $totalSanctionedAmount = $approvedLoans->sum('amount');
@@ -59,9 +93,11 @@ class PageController extends Controller
        
         // $amountPerInstallment = ($installments > 0) ? $totalAmountWithInterest / $iInstallments : 0;
         $data = array('loans' => $loans, 
+
                         'deposits'=> [],
-                         'pending'=>$pending, 
-                         'accepted'=>$accepted, 
+                         'members' => $members,
+                         'pending'=>$pending,
+                         'accepted'=>$accepted,
                          'shortlisted'=>$shortlisted,
                          'disapproved'=>$disapproved,
                          'approved'=>$approved,
@@ -69,6 +105,7 @@ class PageController extends Controller
                          'rejected' => $rejected,
                          'activeButton' => 'laravel',
                          'loansPercentage' => $loansPercentage,
+
                          'installments' => $installments,
                          'interest' => $interest,
                          'totalAppliedAmount' => $totalAppliedAmount,
@@ -79,6 +116,7 @@ class PageController extends Controller
                          'recoveredLoans' =>  $recoveredLoans,
                        
                          
+
                     );
 
         if($page == "generate-pdf"){
@@ -122,8 +160,19 @@ class PageController extends Controller
 
     }
 
-    public function magic(Request $request)
     
+
+    // public function generatePdf()
+    // {
+
+    //     $data = ['title' => 'My PDF Report'];
+    //     $pdf = PDF::loadView('pages.notifications', $data);
+    //     $pdf->setPaper('A4', 'portrait');
+    //     return $pdf->download('report.pdf');
+    // }
+    }
+    public function magic(Request $request)
+
     {
         $id = $request->loan_id;
         $status = $request->loan_req;
@@ -131,29 +180,13 @@ class PageController extends Controller
         $loan = Loans::where('application_number', $id)->update(['request_status' => $status]);
         return redirect()->back();
     }
-    
-    public function generatePdf()
-    {
-        
-        $data = ['title' => 'My PDF Report'];
-        $pdf = PDF::loadView('pages.notifications', $data); 
-        $pdf->setPaper('A4', 'portrait');
-        return $pdf->download('notifications.pdf');
-    }
-   
-    public function loansInProgress()
-    {
-        // Logic to retrieve and display loans in progress
-    }
 
-    public function delinquentLoans()
+    public function import(Request $request)
     {
-        // Logic to retrieve and display delinquent loans
-    }
+       // dd("we are in");
+        Excel::import(new DepositsImport,  $request->file('file')->store('temp'));
 
-    public function defaultLoans()
-    {
-        // Logic to retrieve and display default loans
+        return redirect()->back()->with('success', 'All good!');
+
     }
-}
-   
+  }
