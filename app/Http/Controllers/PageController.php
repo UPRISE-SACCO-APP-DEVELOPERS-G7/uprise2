@@ -51,8 +51,7 @@ class PageController extends Controller
         $totalLoans = $pending + $accepted + $shortlisted + $disapproved + $approved + $rejected;
         $loansPercentage = ($totalLoans > 0) ? (($approved / $totalLoans) * 100) : 0;
         $shortlisted = $approved + $disapproved;
-        $interest = $loan-> interest * $loan -> amount;
-        $totalAmountWithInterest = $loan -> amount + $interest;
+        $interest = ($loan->interest_rate/100) * $loan -> amount;
         $totalSanctionedAmount = $approvedLoans->sum('amount');
         $disapprovedSum = Loans::where('request_status', 'DISAPPROVED')->sum('amount');
         
@@ -77,7 +76,8 @@ class PageController extends Controller
                          'approvedLoans' => $approvedLoans,
                          'disapprovedSum' =>  $disapprovedSum,
                          'disbursedLoans' => $disbursedLoans,
-                         'recoveredLoans' =>  $recoveredLoans
+                         'recoveredLoans' =>  $recoveredLoans,
+                       
                          
                     );
 

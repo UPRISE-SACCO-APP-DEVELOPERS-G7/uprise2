@@ -68,7 +68,7 @@
      <table class="table table-hover table-striped" id="myTable">
     <thead>
         <tr>
-            <th>Date</th>
+            <!-- <th>Date</th> -->
             <th>Member</th>
             <!-- <th>LoanID</th> -->
             <th>Amount</th> 
@@ -83,14 +83,16 @@
         
     @foreach ($loans as $loan)
             <tr>
-                <td> {{$loan-> start_date}}</td>
-         <td>{{ $loan->application_number }}</td>
-         <td>{{ $loan->amount }}</td>
-         <td>{{$loan -> payment_period}}</td>
-         <td>{{}}</td>
-                 
+                <!-- <td> {{$loan-> start_date}}</td> -->
+                <td>{{ $loan->application_number }}</td>
+                <td>{{ $loan->amount }}</td>
+                <td>{{$interest}}</td>
+                <td>{{ $loan->payment_period }}</td>
+                <td>{{ $loan->amount + $interest }}</td>  
+                <td>{{ ($loan->amount + $interest)/$loan->payment_period }}</td> 
+                <td>{{$loan-> request_status}}</td>          
             </tr>
-        @endforeach
+    @endforeach
            
            
             
