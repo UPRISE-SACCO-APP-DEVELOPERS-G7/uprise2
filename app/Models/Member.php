@@ -10,15 +10,14 @@ class Member extends Model
 
     protected $fillable = [
         
-        'username',
+        'firstname',
+        'lastname',
+        'email',
         'password',
         'phone',
-        'email',
-        'status',
-        'membership_type',
-        'registration_number',
-        'physical_address',
-        'postal_address',
+        'title',
+        'address',
+        
 
     ];
 

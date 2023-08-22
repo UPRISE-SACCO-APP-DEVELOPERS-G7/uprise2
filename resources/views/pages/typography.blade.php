@@ -12,7 +12,7 @@
                                 <thead>
                                     <th>ID</th>
                                     <th>Amount Deposited</th>
-                                    <th>Name of Member</th>
+                                    <!-- <th>Name of Member</th> -->
                                     <th>Membership Id</th>
                                     
                                 </thead>
@@ -21,13 +21,15 @@
                                     <tr>
                                     <td>{{ $deposit->receipt_number}}</td>
                                         <td>{{ $deposit->amount }}</td>
-                                        <td>{{ $deposit->name }}</td>
+                                        <!-- <td>{{ $deposit->name }}</td> -->
                                         <td>{{ $deposit->member_id }}</td>
                                     </tr>
                                     @endforeach
                                     
                                 </tbody>
                             </table>
+
+                         
                         </div>
                         <div class="row">
                   <div class="col-md-6">
@@ -56,12 +58,13 @@
     <script type="text/javascript">
         var ctx = document.getElementById('loanStatusChart').getContext('2d');
         var myChart = new Chart(ctx, {
-            type: 'line',
+            type: 'bar',
             data: {
                 labels: {!! json_encode(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']) !!},
                 datasets: [{
                     label: 'Deposit status',
-                    data: {!! json_encode([ 100,400, 600, 730, 630,400,650,120,500,750,900,200]) !!},
+                    data: {!! json_encode([ $realData[0],$realData[1],$realData[2],$realData[3],$realData[4],$realData[5],$realData[6],$realData[7],$realData[8],$realData[9],$realData[10],$realData[11]]) !!},
+                   // data: $realData, 
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)',
                         'rgba(255, 99, 132, 0.2)',
@@ -97,11 +100,11 @@
         var approvedRejectedPieChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['Weekly Deposits', 'Monthly Deposits', 'Annually Deposits'],
+                labels: ['Deposits of last year','Deposits of this year'],
                 datasets: [{
-                    data: [{{ 90 }}, {{ 200}}, {{ 900}}], 
+                    data: [{{ 200}}, {{ 900}}], 
                     
-                    backgroundColor: ['rgba(0, 0, 128, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(173, 216, 230, 0.2)'],
+                    backgroundColor: ['rgba(0, 0, 128, 0.2)', 'rgba(255, 99, 132, 0.2)'],
                     borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)'],
                     borderWidth: 1
                 }]

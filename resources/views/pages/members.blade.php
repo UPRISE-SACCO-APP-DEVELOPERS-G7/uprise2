@@ -11,8 +11,11 @@
 
 <form id="registrationForm" method ="POST" action="/members">
     @csrf
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username" required>
+  <label for="username">Firstname:</label>
+  <input type="text" id="username" name="firstname" required>
+
+  <label for="username">Lastname:</label>
+  <input type="text" id="username" name="lastname" required>
 
   <label for="email">Email:</label>
   <input type="email" id="email" name="email" required>
@@ -20,23 +23,14 @@
   <label for="password">Password:</label>
   <input type="password" id="password" name="password" required>
 
-  <label for="username">Status:</label>
-  <input type="text" id="status" name="status" required>
-
   <label for="username">Phone:</label>
   <input type="text" id="phone" name="phone" required>
 
-  <label for="username">Membership Type:</label>
-  <input type="text" id="membership type" name="membership_type" required>
+  <label for="username">Title:</label>
+  <input type="text" id="membership type" name="title" required>
 
-  <label for="username">Registration Number:</label>
-  <input type="text" id="registration number" name="registration_number" required>
-
-  <label for="username">Physical Address:</label>
-  <input type="text" id="physical address" name="physical_address" required>
-
-  <label for="username">Postal Address:</label>
-  <input type="text" id="postal address" name="postal_address" required>
+  <label for="username">Address:</label>
+  <input type="text" id="physical address" name="address" required>
 
   <button type="submit" id="registerButton">Register</button>
 </form>

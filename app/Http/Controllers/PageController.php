@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Claim;
-use App\Models\Deposits;
+use App\Models\Deposit;
 use Carbon\Carbon;
 
 
@@ -31,39 +31,17 @@ class PageController extends Controller
           $claims = \App\Models\Claim::all();
           return view("pages.maps", ['claims' => $claims,]);
       }elseif($page == 'typography') {
-        $deposits = Deposits::all();
-        // dd($deposits);
-        // $trial = $deposits[0]['created_at'];
-        //$date = $model->created_at->toDateString();
-       // $date = $model->created_at->date('Y-m-d');
-       //$startDate = Carbon::create(2023, 8,8 );
-       //$endDate = Carbon::create(2023, 8, 16);
-       $sample = $this->sortMonths();
-       echo json_encode($sample);
-    //$this->sortMonths();
-       $start_time = \Carbon\Carbon::parse('2023-08-08');
-        $finish_time = \Carbon\Carbon::parse('2023-08-16');
-        $result = $start_time->diffInDays($finish_time, false);
-        $nows=new \DateTime();
-        //  echo $nows->format('Y-m-d') ;
-        $now = Carbon::now();
-
-        // dd($nows);
-        //echo $now;
-        //die();
-
-    //    $result = $deposits[3]->created_at->toDateString() -$deposits[0]->created_at->toDateString();
-      // dd($result);
-
-
-        foreach($deposits as $depts){
-            $date_from_db = \Carbon\Carbon::parse($depts->created_at->toDateString());
-           //echo $date . '<br />';
-        }
-        die();
+        $deposits = Deposit::all();
+        
+       $graphData = $this->sortMonths();
+      $realData = [];
+       foreach($graphData as $data){
+         array_push($realData, $data['total']);
+       }
 
         return view("pages.typography", [
             'deposits' => $deposits,
+            'realData'=>$realData
         ]);
       }elseif($page == 'members'){
           $members=Member::all();
@@ -84,22 +62,21 @@ class PageController extends Controller
    {
     // dd($request);
     $member = Member::create([
-        'username'=>$request->username,
+        'firstname'=>$request->firstname,
+        'lastname'=>$request->lastname,
+        'email'=>$request->email,
         'password'=>$request->password,
         'phone'=>$request->phone,
-        'email'=>$request->email,
-        'status'=>$request->status,
-        'membership_type'=>$request->membership_type,
-        'registration_number'=>$request->registration_number,
-        'physical_address'=>$request->physical_address,
-        'postal_address'=>$request->postal_address,
+        'title'=>$request->title,
+        'address'=>$request->address,
+       
         ]);
 
     // return view("pages.members")->with("message",$member->username . " registered successfully");
     $members=Member::all();
     return view("pages.members", [
         "members" => $members,
-        "message"=> $member->username . " registered successfully"
+        "message"=> $member->lastname . " registered successfully"
     ]);
 
    }
@@ -125,7 +102,7 @@ class PageController extends Controller
    {
 
      $m = $x = array();
-     $deposits = Deposits::all();
+     $deposits = Deposit::all();
      //$months = ["January", "February", "March", "April", "May", "June", "July", "August","September", "October", "November", "December"];
      $months = [1,2,3,4,5,6,7,8,9,10,11,12];
      foreach($months as $month)
