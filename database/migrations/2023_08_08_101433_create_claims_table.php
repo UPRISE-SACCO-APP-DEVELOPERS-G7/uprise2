@@ -20,7 +20,7 @@ class CreateClaimsTable extends Migration
             $table->unsignedBigInteger('member_id');
             $table->timestamps();
 
-            $table->foreign('member_id')->references('id')->on('members_table')->onDelete('cascade');
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
         });
     }
 

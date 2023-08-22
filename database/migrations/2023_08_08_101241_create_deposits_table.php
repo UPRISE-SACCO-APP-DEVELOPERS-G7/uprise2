@@ -16,11 +16,12 @@ class CreateDepositsTable extends Migration
         Schema::create('deposits', function (Blueprint $table) {
             $table->bigIncrements('receipt_number');
             $table->double('amount');
+            // $table->string('name')->nullbale();
             $table->unsignedBigInteger('member_id')->nullable();
             $table->timestamps(); // This will automatically add `created_at` and `updated_at` columns
             
             // Add foreign key constraint to the members table
-            $table->foreign('member_id')->references('id')->on('members_table');
+            $table->foreign('member_id')->references('id')->on('members');
         });
     }
 

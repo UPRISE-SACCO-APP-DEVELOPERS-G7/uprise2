@@ -52,11 +52,10 @@ Route::group(['middleware' => ['prevent-back-history', 'auth']], function () {
     Route::post('/excel','App\Http\Controllers\PageController@import')->name('excel');
 
 	// Route::get('/dash', [PageController::class, 'dashboard'])->name("dashboard");
-
-	Route::get('/members', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index'])->name('all_members');
 	Route::post('/members', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@createMember']);
-
+	Route::get('/members', ['App\Http\Controllers\PageController@listMembers'])->name("all_members");
 	Route::get('/loans', ['App\Http\Controllers\LoansController@loans'])->name("all_loans");
+
 	// Route::get('/members', [MemberController::class, 'store']);
     
 });
