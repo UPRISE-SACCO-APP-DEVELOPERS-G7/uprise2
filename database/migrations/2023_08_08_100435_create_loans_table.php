@@ -27,7 +27,7 @@ class CreateLoansTable extends Migration
             $table->integer('installment_count')->nullable();
             $table->decimal('installment_amount', 10, 2)->nullable();
             // Add foreign key constraint to the members table
-            $table->foreign('member_id')->references('id')->on('members');
+            $table->foreign('member_id')->references('id')->on('members_table');
         });
     }
 

@@ -9,6 +9,7 @@ use App\Models\Member;
 
 use PDF;
 
+
 class PageController extends Controller
 {
 
@@ -17,8 +18,9 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($page)
+    public function index($page, Request $request)
     {
+
 
        
         $installments = 12; // You can replace 12 with the actual number of installments
@@ -127,6 +129,14 @@ class PageController extends Controller
             $pdf->setPaper('A4', 'portrait');
             return $pdf->download('notifications.pdf');
         }
+        if($page == 'members'){
+            $members=Member::all();
+            return view("pages.members", [
+              'members'=>$members,
+              'message'=> ""
+            ]);         
+  
+          }
         if($page == "loans-in-progress"){
             // dd($data);
 
@@ -189,4 +199,48 @@ class PageController extends Controller
         return redirect()->back()->with('success', 'All good!');
 
     }
+
+    public function createMember(Request $request)
+   {
+    // dd($request);
+    $member = Member::create([
+        'username'=>$request->username,
+        'password'=>$request->password,
+        'phone'=>$request->phone,
+        'email'=>$request->email,
+        'status'=>$request->status,
+        'membership_type'=>$request->membership_type,
+        ]);
+
+    // return view("pages.members")->with("message",$member->username . " registered successfully");
+    $members=Member::all();
+    return view("pages.members", [
+        "members" => $members,
+        "message"=> $member->username . " registered successfully"
+    ]);    
+
+   }
+
+    public function dashboard()
+    {
+        return view("pages.dashboard");
+    }
   }
+
+  /* Nabwire is fish */
+
+//        else{
+//             if (view()->exists("pages.{$page}")) {
+//                 return view("pages.{$page}");
+//             }
+//             return abort(404);
+//         }
+       
+//     }
+
+   
+
+
+   
+// }
+

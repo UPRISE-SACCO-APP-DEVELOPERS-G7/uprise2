@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\PageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +37,7 @@ Route::group(['middleware' => ['prevent-back-history', 'auth']], function () {
 
 Route::group(['middleware' => ['prevent-back-history', 'auth']], function () {
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
+
 	// Route::get('/loans', 'App\Http\Controllers\PageController@loans')->name('all_loans');
 	Route::get('/loans', 'App\Http\Controllers\LoansController@loans')->name('all_loans');
     Route::post('/loans','App\Http\Controllers\PageController@magic')->name('submit_form');
@@ -47,4 +51,16 @@ Route::group(['middleware' => ['prevent-back-history', 'auth']], function () {
 
     Route::post('/excel','App\Http\Controllers\PageController@import')->name('excel');
 
+	// Route::get('/dash', [PageController::class, 'dashboard'])->name("dashboard");
+
+	Route::get('/members', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index'])->name('all_members');
+	Route::post('/members', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@createMember']);
+
+	Route::get('/loans', ['App\Http\Controllers\LoansController@loans'])->name("all_loans");
+	// Route::get('/members', [MemberController::class, 'store']);
+    
 });
+
+// Route::get('/members', [MemberController::class, 'store']);
+// Route::get('/sample',['App\Http\Controllers\MemberController@store']);
+

@@ -48,14 +48,14 @@ Tip 2: you can also add an image using data-image tag
                 </div>
             </li>
 
-            <li class="nav-item @if($activePage == 'table') active @endif">
-                <a class="nav-link" href="{{route('page.index', 'table')}}">
+            <li class="nav-item @if($activePage == 'members') active @endif">
+                <a class="nav-link" href="{{URL('/members')}}">
                     <i class="nc-icon nc-circle-09"></i>
                     <p>{{ __("Members") }}</p>
                 </a>
             </li>
             <li class="nav-item @if($activePage == 'typography') active @endif">
-                <a class="nav-link" href="{{route('page.index', 'typography')}}">
+                <a class="nav-link" href="{{URL('/typography')}}">
                     <i class="nc-icon nc-paper-2"></i>
                     <p>{{ __("Deposits") }}</p>
                 </a>
@@ -72,14 +72,20 @@ Tip 2: you can also add an image using data-image tag
                 Loans</a>
             </li>
 
-            
-            
-             <li class="nav-item @if($activePage == 'notifications') active @endif">
+             <li class="nav-item @if($activePage == 'maps') active @endif">
+                <a class="nav-link" href="{{ URL('/maps') }}">
+                    <i class="nc-icon nc-pin-3"></i>
+                    <p>{{ __("Claims") }}</p>
+                </a>
+            </li>
+             <!-- <li class="nav-item @if($activePage == 'notifications') active @endif">
+
                 <a class="nav-link" href="{{route('page.index', 'notifications')}}">
                     <i class="nc-icon nc-single-copy-04"></i>
                     <p>{{ __("Reports") }}</p>
                 </a>
-            </li>  
+
+            </li>  -->
             <li class="nav-item">
                 <a class="nav-link active bg-danger" href="{{route('page.index', 'upgrade')}}">
                     <i class="nc-icon nc-alien-33"></i>
