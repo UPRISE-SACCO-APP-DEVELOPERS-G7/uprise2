@@ -39,6 +39,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/loans', 'App\Http\Controllers\LoansController@loans')->name('all_loans');
     Route::post('/loans','App\Http\Controllers\PageController@magic')->name('submit_form');
 	Route::get('/generate-pdf', 'App\Http\PageController@generatePdf')->name('generate_pdf');
+    Route::get('/loans-in-progress',  'App\Http\PageController@loansInProgress')->name('loans.in.progress');
+    Route::get('/delinquent-loans', [PageController::class, 'delinquentLoans'])->name('delinquent.loans');
+    Route::get('/default-loans', [PageController::class, 'defaultLoans'])->name('default.loans');
+	Route::get('/cleared-loans', [PageController::class, 'clearedLoans'])->name('cleared.loans');
 
 });
 

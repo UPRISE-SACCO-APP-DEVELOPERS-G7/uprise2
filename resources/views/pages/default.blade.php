@@ -13,38 +13,15 @@
        
     </ul>
 </nav>
-<div class="content" >
+ <div class="content" >
     
-        <div style="display: flex; justify-content: space-around">
-            <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:#27a8d0; padding: 20px;border-radius: 10px;">
-            <a href=""><p style = "color: white">Applied</p></a>
-                <p style = "color: white">{{  $shortlisted }}</p>
-                
-            </div>
-            <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:#27a8d0; padding: 20px;border-radius: 10px;">
-            <a href=""><p style = "color: white">Sanctioned</p></a>
-                <p style = "color: white">{{ $approved }}</p>
-                
-            </div>
-            <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:#27a8d0; padding: 20px;border-radius: 10px;">
-                <p style = "color: white">Disapproved</p>
-                <p style = "color: white">{{ $disapproved }}</p>
-            </div>
-            <div class="rounded-rectangle" style="width:200px; height: 100px; background-color:#27a8d0; padding: 20px; border-radius: 10px;">
-                <p style = "color: white">Shortlisted</p>
-                <p style = "color: white">{{ $shortlisted }}</p>
-            </div>
-            <!-- <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
-                <p style = "color: white">DISAPPROVED</p>
-                <p style = "color: white">{{ $disapproved }}</p>
-            </div> -->
-        </div>
     <div class="row" style= "margin-top: 50px">
         <div class="col-md-8" style = "width: 650px">
         <div class= "row">
         <div class="col-md-6">
                       <div class="card ">
                         <div class="card-body ">
+                            <h6>Rate of Clearance</h6>
                             <div class="chart">
                             <canvas id= "loanStatusChart" style="width: 500px; height: 345px;"></canvas>
                             </div>
@@ -65,37 +42,26 @@
                 </div>
         </div>
         <div class="card-body table-full-width table-responsive" style="margin-left: 4px; background-color:#27a8d0; padding:5px; border-radius:20px">
-            <h3 style="color: white; text-align: center;">SHORTLISTED LOANS</h3>
+            <h3 style="color: white; text-align: center;">DEFAULTED LOANS</h3>
      <table class="table table-hover table-striped" id="myTable">
     <thead>
         <tr>
-            <th>Date</th>
             <th>Member</th>
              <th>Amount</th>
-            <th>Payment period</th> 
-            <th>Action</th> 
+            <th>Installment Defaulted</th> 
+            <th>Remaining installments</th>
+            <th>Balance</th>
+         
         </tr>
     </thead>
     <tbody>
         @foreach ($loans as $loan)
             <tr>
-                <td>2023-11-17</td>
-         <td>{{ $loan->application_number }}</td>
-         <td>{{ $loan->amount }}</td>
-                <td>2</td>
-                
-                <td> <form action = "{{ route('submit_form') }}"  method ="post">
-                        @csrf
-                        <input type="hidden" id="id" name="loan_id" value="{{ $loan->application_number }}">
-                        <select name="loan_req" id="loan" onchange = 'this.form.submit()'>
-                            <option value="{{ $loan->request_status }}">{{ $loan->request_status }}</option>
-                            <option value="APPROVED">Approve</option>
-                            <option value="DISAPPROVED">Disapprove</option>
-                        </select>
-                    </form>
-                
-
-                </td>
+                <td>Madrine</td>
+         <td>300000</td>
+         <td>4th</td>
+         <td>2</td>
+        <td>600000</td>
                  
             </tr>
         @endforeach
@@ -106,36 +72,26 @@
        <div class="col-md-3"  >
        <div class="card1" style = "width: 300px; background-color: #FFFFFF;">
                         <div class="card-body ">
-                           <p>Applied loan Amount</p>
+                           <p>Approved loan Amount</p>
                            <div>
-                            <h5 style= "color: #27a8d0"> Ugsh {{ $totalAppliedAmount}} </h5>
+                            <h5 style= "color: #27a8d0">Ugsh 1000,000</h5>
                            </div>
                          </div>
        </div>
        <div class="card1" style = "width: 300px; background-color: #FFFFFF; margin-top: 20px">
                         <div class="card-body ">
-                           <p>Sanctioned  Amount</p>
+                           <p>Disapproved loan Amount</p>
                            <div>
-                            <h5 style= "color: #27a8d0">Ugsh {{  $totalSanctionedAmount}}</h5>
+                            <h5 style= "color: #27a8d0">Ugsh 1000,000</h5>
                            </div>
                          </div>
        </div>
-       <div class="card1" style = "width: 300px; background-color: #FFFFFF; margin-top: 20px">
-                        <div class="card-body ">
-                           <p>Disapproved Amount</p>
-                           <div>
-                            <h5 style= "color: #27a8d0">Ugsh {{ $disapprovedSum}}</h5>
-                           </div>
-                         </div>
-                         
-       </div>
-      
        <div class="card1" style = "width: 300px; background-color: #FFFFFF; margin-top: 20px">
                         
                         <div class="card-body ">
-                            <h6>Sanctioned Vs Disapproved</h6>
+                            <h6>shortlisted loan performance for July and August</h6>
                             <div class="chart">
-                            <canvas id= "DoughnutChart" style="width: 500px; height: 520px;"></canvas>
+                            <canvas id= "DoughnutChart" style="width: 500px; height: 300px;"></canvas>
                             </div>
                          </div>
                         
@@ -153,7 +109,7 @@
     <script type="text/javascript">
         var ctx = document.getElementById('loanStatusChart').getContext('2d');
         var myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: {!! json_encode(['Approved', 'Shortlisted', 'Disapproved', 'Pending', 'Accepted', 'Rejected']) !!},
                 datasets: [{
@@ -194,9 +150,9 @@
         var approvedRejectedPieChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['Sanctioned', 'Disapproved'],
+                labels: ['Approved', 'Disapproved'],
                 datasets: [{
-                    data: [{{ $totalSanctionedAmount }}, {{ $disapprovedSum }}], 
+                    data: [{{ $approved }}, {{ $disapproved }}], 
                     backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
                     borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)'],
                     borderWidth: 1
@@ -213,7 +169,7 @@
         var approvedRejectedPieChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['Sanctioned', 'Disapproved'],
+                labels: ['Approved', 'Disapproved'],
                 datasets: [{
                     data: [{{ $approved }}, {{ $disapproved }}], 
                     backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
