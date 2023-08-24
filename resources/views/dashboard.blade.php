@@ -19,7 +19,7 @@
     <div style="display: flex; justify-content: space-around">
         <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
             <p class="white-text" style="color: white;"><strong>Members</strong></p>
-            <p style="color: white;">100</p>
+            <p style="color: white;">{{$members}}</p>
         </div>
         <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
             <p class="white-text" style="color: white;"><strong>Non Members</strong></p>
@@ -27,11 +27,11 @@
         </div>
         <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
             <p class="white-text" style="color: white;"><strong>Deposits</strong></p>
-            <p style="color: white;">10,000,000</p>
+            <p style="color: white;">{{$deposit_count}}</p>
         </div>
         <div class="rounded-rectangle" style="width:200px; height: 100px; background-color: #27a8d0; padding: 20px; border-radius: 10px;">
             <p class="white-text" style="color: white;"><strong>Loans</strong></p>
-            <p style="color: white;">9</p>
+            <p style="color: white;">{{$loans}}</p>
 
         </div>
     </div>
@@ -46,11 +46,11 @@
                         </div>
                         <div class="card-body ">
                             <div class="legend">
-                                <p>4000,000</p>
+                                <p>{{ number_format($highest_deposit,2)}}</p>
                             </div>
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-clock-o"></i> {{ __('Last Updated 2 days ago') }}
+                                <i class="fa fa-clock-o"></i> {{ __('Last Updated :time', ['time' => \Carbon\Carbon::parse($deposit_update)->diffForHumans()]) }}
                             </div>
                         </div>
                     </div>
@@ -63,11 +63,11 @@
                         </div>
                         <div class="card-body ">
                             <div class="legend">
-                                <p>4000,000</p>
+                                <p>{{ number_format($highest_loan,2) }}</p>
                             </div>
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-clock-o"></i> {{ __('Last Updated 2 days ago') }}
+                                <i class="fa fa-clock-o"></i> {{ __('Last Updated :time', ['time' => \Carbon\Carbon::parse($loan_update)->diffForHumans()]) }}
                             </div>
                         </div>
                     </div>
@@ -80,11 +80,11 @@
                         </div>
                         <div class="card-body ">
                             <div class="legend">
-                                <p>14,000,000</p>
+                                <p>{{ number_format($account_balance, 2)}}</p>
                             </div>
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-clock-o"></i> {{ __('Last Updated 2 days ago') }}
+                                <i class="fa fa-clock-o"></i> {{ __('Last Updated :time', ['time' => \Carbon\Carbon::parse($loan_update)->diffForHumans()]) }}
                             </div>
                         </div>
                     </div>

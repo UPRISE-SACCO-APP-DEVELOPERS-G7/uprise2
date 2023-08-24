@@ -79,20 +79,20 @@ Tip 2: you can also add an image using data-image tag
                     <p>{{ __("Claims") }}</p>
                 </a>
             </li>
-             <!-- <li class="nav-item @if($activePage == 'notifications') active @endif">
+             <li class="nav-item @if($activePage == 'notifications') active @endif">
 
-                <a class="nav-link" href="{{route('page.index', 'notifications')}}">
+                <a class="nav-link" href="{{URL('/notifications')}}">
                     <i class="nc-icon nc-single-copy-04"></i>
                     <p>{{ __("Reports") }}</p>
                 </a>
 
-            </li>  -->
-            <li class="nav-item">
+            </li> 
+            <!-- <li class="nav-item">
                 <a class="nav-link active bg-danger" href="{{route('page.index', 'upgrade')}}">
                     <i class="nc-icon nc-alien-33"></i>
                     <p>{{ __("Sign Out") }}</p>
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </div>

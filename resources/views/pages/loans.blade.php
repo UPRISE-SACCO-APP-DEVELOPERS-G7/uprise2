@@ -135,7 +135,7 @@
                         <div class="card-body ">
                             <h6>Sanctioned Vs Disapproved</h6>
                             <div class="chart">
-                            <canvas id= "DoughnutChart" style="width: 500px; height: 520px;"></canvas>
+                            <canvas id= "DoughnutChart" style="width: 500px; height: 320px;"></canvas>
                             </div>
                          </div>
                         
@@ -190,9 +190,9 @@
         });
     </script>
     <script>
-        var ctx = document.getElementById('approvedRejectedPieChart').getContext('2d');
+        var ctx = document.getElementById('DoughnutChart').getContext('2d');
         var approvedRejectedPieChart = new Chart(ctx, {
-            type: 'pie',
+            type: 'doughnut',
             data: {
                 labels: ['Sanctioned', 'Disapproved'],
                 datasets: [{
@@ -209,9 +209,9 @@
         });
     </script>
     <script>
-        var ctx = document.getElementById('DoughnutChart').getContext('2d');
+         var ctx = document.getElementById('approvedRejectedPieChart').getContext('2d');
         var approvedRejectedPieChart = new Chart(ctx, {
-            type: 'doughnut',
+            type: 'pie',
             data: {
                 labels: ['Sanctioned', 'Disapproved'],
                 datasets: [{
