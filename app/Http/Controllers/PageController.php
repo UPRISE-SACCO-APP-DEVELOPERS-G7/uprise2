@@ -72,7 +72,7 @@ class PageController extends Controller
         $loansPercentage = ($totalLoans > 0) ? (($approved / $totalLoans) * 100) : 0;
         $data = array('loans' => $loans,
                         'deposits'=> [],
-                         'members' => $members,
+                        //  'members' => $members,
                          'pending'=>$pending,
                          'accepted'=>$accepted,
                          'shortlisted'=>$shortlisted,
@@ -114,6 +114,8 @@ class PageController extends Controller
     {
        // dd("we are in");
         Excel::import(new DepositsImport,  $request->file('file')->store('temp'));
+
+        
 
         return redirect()->back()->with('success', 'All good!');
     }

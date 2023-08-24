@@ -10,7 +10,9 @@ class Deposit extends Model
 
     protected $fillable = [
         'amount',
-        'member_id', // Adjust this based on the correct column name in your database
+        'member_id',
+        'receipt_number',
+        'created_at' // Adjust this based on the correct column name in your database
     ];
 
     protected $casts = [

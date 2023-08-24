@@ -14,9 +14,10 @@ class CreateDepositsTable extends Migration
     public function up()
     {
         Schema::create('deposits', function (Blueprint $table) {
-            $table->bigIncrements('receipt_number');
+            $table->id();
+            $table->double('receipt_number');
             $table->double('amount');
-            $table->unsignedBigInteger('member_id')->nullable();
+            $table->unsignedBigInteger('member_id');
             $table->timestamps(); // This will automatically add `created_at` and `updated_at` columns
             
             // Add foreign key constraint to the members table
