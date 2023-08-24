@@ -15,33 +15,11 @@
 </nav>
  <div class="content" >
     
-    <div class="row" style= "margin-top: 50px">
-        <div class="col-md-8" style = "width: 650px">
+    <div class="row">
+        <div class="col-md-10">
         <div class= "row">
-        <div class="col-md-6">
-                      <div class="card ">
-                        <div class="card-body ">
-                            <h6>Rate of Clearance</h6>
-                            <div class="chart">
-                            <canvas id= "loanStatusChart" style="width: 500px; height: 345px;"></canvas>
-                            </div>
-                         </div>
-                        
-                    </div>
-                 </div>
-                 <div class="col-md-6">
-                    <div class="card ">
-                        
-                        <div class="card-body ">
-                            <div class="chart">
-                            <canvas id= "approvedRejectedPieChart" style="width: 500px; height: 190px;"></canvas>
-                            </div>
-                         </div>
-                        
-                    </div>
-                </div>
-        </div>
-        <div class="card-body table-full-width table-responsive" style="margin-left: 4px; background-color:#27a8d0; padding:5px; border-radius:20px">
+        
+        <div class="card-body table-full-width table-responsive" style="margin-top: 3px; margin-left: 4px; background-color:#27a8d0; padding:5px; border-radius:20px">
             <h3 style="color: white; text-align: center;">DEFAULTED LOANS</h3>
      <table class="table table-hover table-striped" id="myTable">
     <thead>
@@ -69,33 +47,7 @@
 </table>
 </div>
         </div>
-       <div class="col-md-3"  >
-       <div class="card1" style = "width: 300px; background-color: #FFFFFF;">
-                        <div class="card-body ">
-                           <p>Approved loan Amount</p>
-                           <div>
-                            <h5 style= "color: #27a8d0">Ugsh 1000,000</h5>
-                           </div>
-                         </div>
-       </div>
-       <div class="card1" style = "width: 300px; background-color: #FFFFFF; margin-top: 20px">
-                        <div class="card-body ">
-                           <p>Disapproved loan Amount</p>
-                           <div>
-                            <h5 style= "color: #27a8d0">Ugsh 1000,000</h5>
-                           </div>
-                         </div>
-       </div>
-       <div class="card1" style = "width: 300px; background-color: #FFFFFF; margin-top: 20px">
-                        
-                        <div class="card-body ">
-                            <h6>shortlisted loan performance for July and August</h6>
-                            <div class="chart">
-                            <canvas id= "DoughnutChart" style="width: 500px; height: 300px;"></canvas>
-                            </div>
-                         </div>
-                        
-                    </div>
+       
     </div>
            
 </div>

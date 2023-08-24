@@ -8,8 +8,8 @@
         </li>
        <li class="nav-item"><a href="{{route('loans.in.progress')}}">In Progress</a></li>
        <li class="nav-item"><a href="{{route('cleared.loans')}}">Cleared</a></li>
-        <li class="nav-item"><a href="{{route('delinquent.loans')}}">Delinquent</a></li>
-        <li class="nav-item"><a href="{{route('default.loans')}}">Defaulted</a></li>
+        <!-- <li class="nav-item"><a href="{{route('delinquent.loans')}}">Delinquent</a></li>
+        <li class="nav-item"><a href="{{route('default.loans')}}">Defaulted</a></li> -->
        
     </ul>
 </nav>

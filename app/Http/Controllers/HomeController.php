@@ -76,7 +76,8 @@ class HomeController extends Controller
             'highest_loan' => $highest_loan,
             'account_balance' =>$account_balance,
             "loan_update" => $loan_update,
-            "deposit_update"=>$deposit_update
+            "deposit_update"=>$deposit_update,
+            "loans" =>Loan::all()
         ];
         return view('dashboard')->with($data);
         // return view('login');

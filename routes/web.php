@@ -48,6 +48,7 @@ Route::group(['middleware' => ['prevent-back-history', 'auth']], function () {
     Route::get('/delinquent-loans', [PageController::class, 'delinquentLoans'])->name('delinquent.loans');
     Route::get('/default-loans', [PageController::class, 'defaultLoans'])->name('default.loans');
 	Route::get('/cleared-loans', [PageController::class, 'clearedLoans'])->name('cleared.loans');
+	
 
 
     Route::post('/excel','App\Http\Controllers\PageController@import')->name('excel');

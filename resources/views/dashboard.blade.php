@@ -103,34 +103,18 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Jjumba Benja</td>
-                                        <td>2,300,000</td>
-                                        <td>2023-08-15</td>
+
+                                      @foreach($loans as $loan)
+                                            <tr>
+                                                <td>{{ $loan->id }}</td>
+                                                <td>{{ $loan->member_id }}</td>
+                                                <td>{{ $loan->payment_period }}</td>
+                                                <td>{{ number_format($loan->amount) }}</td>
+                                            </tr>
+                                        @endforeach
+                                    
                                         
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Loor Jacobson</td>
-                                        <td>1,459,000</td>
-                                        <td>2023-08-15</td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Ayiko Eddy</td>
-                                        <td>750,000</td>
-                                        <td>2023-08-15</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Naka Mary</td>
-                                        <td>500,000</td>
-                                        <td>2023-08-15</td>
-                                        
-                                    </tr>
-                                   
-                                   
                                 </tbody>
                             </table>
                         </div><div class="container-fluid" style="margin-top:50px">

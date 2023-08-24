@@ -21,15 +21,7 @@ Tip 2: you can also add an image using data-image tag
             </li>
            
             <li class="nav-item">
-                <!-- <a class="nav-link" data-toggle="collapse" href="#laravelExamples" @if($activeButton =='laravel') aria-expanded="true" @endif>
-                    <i>
-                        <img src="{{ asset('light-bootstrap/img/laravel.svg') }}" style="width:25px">
-                    </i>
-                    <p>
-                        {{ __('Laravel example') }}
-                        <b class="caret"></b>
-                    </p>
-                </a> -->
+               
                 <div class="collapse @if($activeButton =='laravel') show @endif" id="laravelExamples">
                     <ul class="nav">
                         <li class="nav-item @if($activePage == 'user') active @endif">
@@ -38,12 +30,7 @@ Tip 2: you can also add an image using data-image tag
                                 <p>{{ __("User Profile") }}</p>
                             </a>
                         </li>
-                        <!-- <li class="nav-item @if($activePage == 'user-management') active @endif">
-                            <a class="nav-link" href="{{route('user.index')}}">
-                                <i class="nc-icon nc-circle-09"></i>
-                                <p>{{ __("Tables") }}</p>
-                            </a>
-                        </li> -->
+                        
                     </ul>
                 </div>
             </li>
@@ -54,20 +41,16 @@ Tip 2: you can also add an image using data-image tag
                     <p>{{ __("Members") }}</p>
                 </a>
             </li>
-            <li class="nav-item @if($activePage == 'typography') active @endif">
-                <!-- <a class="nav-link" href="{{route('page.index', 'typography')}}"> -->
+            <li class="nav-item @if($activePage == 'Deposits') active @endif">
+               
                 <a class="nav-link" href="{{ URL('/typography')}}">
                     <i class="nc-icon nc-paper-2"></i>
                     <p>{{ __("Deposits") }}</p>
                 </a>
             </li>
-            <!-- <li class="nav-item @if($activePage == 'icons') active @endif"> -->
-               <li class="nav-item"> 
-                <!-- <a class="nav-link" href="{{route('all_loans', 'loans')}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="nc-icon nc-money-coins"></i>
-                    <p>{{ __("Loans") }}</p>
-                    
-                </a> -->
+           
+               <li class="nav-item @if($activePage == 'loans') active @endif" > 
+               
                 <a class="nav-link" href="{{ route('all_loans') }}">
                 <i class="nc-icon nc-money-coins"></i>
                 Loans</a>
@@ -87,12 +70,7 @@ Tip 2: you can also add an image using data-image tag
                 </a>
 
             </li> 
-            <!-- <li class="nav-item">
-                <a class="nav-link active bg-danger" href="{{route('page.index', 'upgrade')}}">
-                    <i class="nc-icon nc-alien-33"></i>
-                    <p>{{ __("Sign Out") }}</p>
-                </a>
-            </li> -->
+           
         </ul>
     </div>
 </div>
