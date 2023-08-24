@@ -17,6 +17,7 @@ class Member extends Model
         'phone',
         'title',
         'address',
+        'deposit_balance'
         
 
     ];

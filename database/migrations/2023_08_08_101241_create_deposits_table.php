@@ -14,7 +14,8 @@ class CreateDepositsTable extends Migration
     public function up()
     {
         Schema::create('deposits', function (Blueprint $table) {
-            $table->bigIncrements('receipt_number');
+            $table->id();
+            $table->double('receipt_number');
             $table->double('amount');
             // $table->string('name')->nullbale();
             $table->unsignedBigInteger('member_id')->nullable();

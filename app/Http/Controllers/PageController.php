@@ -26,7 +26,7 @@ class PageController extends Controller
     { 
         $installments = 12; // You can replace 12 with the actual number of installments
         $interest = 5;
-        $totalAppliedAmount = Loan::sum('amount');
+        $totalAppliedAmount = Loan::sum('principal_amount');
         $loans = Loan::with('installments')->get();
         $loans = Loan::with('installments')->get(); 
         $disbursedLoans = Loan::where('request_status', 'DISBURSED')->get();
@@ -55,31 +55,37 @@ class PageController extends Controller
 
                 $pending = $accepted = $disapproved = $shortlisted = $approved = $rejected = 0;
 
-                foreach($loans as $loan){
-                        if($loan->request_status == "ACCEPTED"){
-                            $accepted++;
-                        }
-                        elseif($loan->request_status == "PENDING"){
-                            $pending++;
-                        }
-                        
-                        elseif($loan->request_status == "APPROVED"){
-                            $approved++;
-                        }
-                        elseif($loan->request_status == "REJECTED"){
-                            $rejected++;
-                        }
-                        else{
-                            $disapproved++;
-                        }
+                $totalInterest = 0; // Initialize total interest
+
+                foreach ($loans as $loan) {
+                    if ($loan->request_status == "ACCEPTED") {
+                        $accepted++;
+                    } elseif ($loan->request_status == "PENDING") {
+                        $pending++;
+                    } elseif ($loan->request_status == "APPROVED") {
+                        $approved++;
+                    } elseif ($loan->request_status == "REJECTED") {
+                        $rejected++;
+                    } else {
+                        $disapproved++;
+                    }
+                
+                    // Calculate interest and add to total
+                    $interest = ($loan->interest_rate / 100) * $loan->amount;
+                    $totalInterest += $interest;
                 }
+
+                $interest = $totalInterest;
+                
+                // Output the total interest
+                // echo "Total Interest on All Loans: $totalInterest";
+                
                 $totalLoans = $pending + $accepted + $shortlisted + $disapproved + $approved + $rejected;
                 $loansPercentage = ($totalLoans > 0) ? (($approved / $totalLoans) * 100) : 0;
-
+                // $interest = ($loan->interest_rate/100) * $loan -> amount;
                 $shortlisted = $approved + $disapproved;
-                $interest = ($loan->interest_rate/100) * $loan -> amount;
                 $totalSanctionedAmount = $approvedLoans->sum('amount');
-                $disapprovedSum = Loan::where('request_status', 'DISAPPROVED')->sum('amount');
+                $disapprovedSum = Loan::where('request_status', 'DISAPPROVED')->sum('principal_amount');
                 
                 
             
@@ -97,7 +103,6 @@ class PageController extends Controller
                                 'rejected' => $rejected,
                                 'activeButton' => 'laravel',
                                 'loansPercentage' => $loansPercentage,
-
                                 'installments' => $installments,
                                 'interest' => $interest,
                                 'totalAppliedAmount' => $totalAppliedAmount,

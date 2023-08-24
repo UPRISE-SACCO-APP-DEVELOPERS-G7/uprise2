@@ -78,28 +78,29 @@
     </thead>
     <tbody>
         @foreach ($loans as $loan)
-            <tr>
-                <td>2023-11-17</td>
-         <td>{{ $loan->application_number }}</td>
-         <td>{{ $loan->amount }}</td>
-                <td>2</td>
-                
-                <td> <form action = "{{ route('submit_form') }}"  method ="post">
-                        @csrf
-                        <input type="hidden" id="id" name="loan_id" value="{{ $loan->application_number }}">
-                        <select name="loan_req" id="loan" onchange = 'this.form.submit()'>
-                            <option value="{{ $loan->request_status }}">{{ $loan->request_status }}</option>
-                            <option value="APPROVED">Approve</option>
-                            <option value="DISAPPROVED">Disapprove</option>
-                        </select>
-                    </form>
-                
-
-                </td>
-                 
-            </tr>
+            @if ($loan->request_status == "SHORTLISTED")
+                <tr>
+                    <td>2023-11-17</td>
+                    <td>{{ $loan->application_number }}</td>
+                    <td>{{ $loan->amount }}</td>
+                    <td>2</td>
+                    
+                    <td>
+                        <form action="{{ route('submit_form') }}" method="post">
+                            @csrf
+                            <input type="hidden" id="id" name="loan_id" value="{{ $loan->application_number }}">
+                            <select name="loan_req" id="loan" onchange="this.form.submit()">
+                                <option value="{{ $loan->request_status }}">{{ $loan->request_status }}</option>
+                                <option value="APPROVED">Approve</option>
+                                <option value="REJECTED">Disapprove</option>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+            @endif
         @endforeach
     </tbody>
+    
 </table>
 </div>
         </div>
