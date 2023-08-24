@@ -39,6 +39,7 @@ class PageController extends Controller
         $members = Member::all();
 
         if($page == "generate-pdf"){
+            // $loansPercentage = ($totalLoans > 0) ? (($approved / $totalLoans) * 100) : 0;
             $data = ['title' => 'My PDF Report'];
             $pdf = PDF::loadView('pages.notifications', $data);
             $pdf->setPaper('A4', 'portrait');
